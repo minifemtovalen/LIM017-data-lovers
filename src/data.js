@@ -7,3 +7,5 @@ export const example = () => {
 export const anotherExample = () => {
   return 'OMG';
 };
+
+//probando instalaciones
