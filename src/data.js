@@ -8,4 +8,3 @@ export const anotherExample = () => {
   return 'OMG';
 };
 
-//probando instalaciones
