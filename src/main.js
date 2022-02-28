@@ -1,12 +1,10 @@
-import { example } from './data.js';
-//import jsonData from './data/pokemon/pokemon.json'
-//import data from './data/lol/lol.js';
+//import { showData } from './data.js';
 import data from './data/pokemon/pokemon.js';
-// import data from './data/rickandmorty/rickandmorty.js';
+//Mostrando data en página principal
 
-console.log(example, data);
-
-
-/* data.pokeconsole.logmon.forEach((pokemon) => {
-console.log(pokemon.name)
-})*/
+const test = document.querySelector('#test')
+data.pokemon.forEach((pokemon) => {
+    let pokemonTest = document.createElement("div");
+        test.appendChild(pokemonTest);
+        pokemonTest.innerHTML = `<img src = ${pokemon.img}> ${pokemon.num} ${pokemon.name} ${pokemon.type}`   
+    });
