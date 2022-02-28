@@ -1,3 +1,7 @@
-footer {
-  justify-self: center;
+.containerFlex{
+	display: flex;
+}
+
+body {
+    background: #fe23;
 }
