@@ -1,4 +1,4 @@
-//import { showData } from './data.js';
+// import { orderData } from './data.js';
 import data from './data/pokemon/pokemon.js';
 //Mostrando data en página principal
 
@@ -10,5 +10,22 @@ data.pokemon.forEach((pokemon) => {
 
 });
 
+
+
+
+
+
+// Ordenando data alfabéticamente
+    /*orderData.sort((a, b) => {
+    const namePokemonOne = a.pokemon.name
+    const namePokemonTwo = b.pokemon.name
+    if (namePokemonOne < namePokemonTwo) {
+        return -1
+    }
+    if (namePokemonOne > namePokemonTwo) {
+        return 1
+    }
+    return 0;
+});*/
 
 

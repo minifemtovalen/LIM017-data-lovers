@@ -2,19 +2,42 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Pokemon Data Lovers</title>
+    <title>Pokémon GO DB</title>
     <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
     <main>
-      <h1>Esto es H1</h1>
+      <h1>Complete Pokémon GO Pokédex</h1>
       <section>
         <label for="search">Name:</label>
-        <input id="search" type="text" name="search">
-        <label for="filter">Type</label>
+        <input id="search" type="text" name="search" placeholder="search by name ex: pichu">
+        <label for="order">Order:</label>
+        <select id="order">
+          <option value="">A-Z</option>
+          <option value="">Z-A</option>
+        </select>
+        <label for="filter">Type:</label>
         <select id="filter">
+          <option value="all">-All-</option>
+          <option value="bug">Bug</option>
+          <option value="dark">Dark</option>
+          <option value="dragon">Dragon</option>
+          <option value="electric">Electric</option>
+          <option value="fairy">Fairy</option>
+          <option value="fighting">Fighting</option>
+          <option value="flying">Flying</option>
           <option value="fire">Fire</option>
+          <option value="ghost">Ghost</option>
+          <option value="grass">Grass</option>
+          <option value="ground">Ground</option>
+          <option value="ice">Ice</option>
+          <option value="normal">Normal</option>
           <option value="poison">Poison</option>
+          <option value="psychic">Psychic</option>
+          <option value="rock">Rock</option>
+          <option value="steel">Steel</option>
+          <option value="water">Water</option>
         </select>
         <button id="search-bar">search</button>
       </section>
