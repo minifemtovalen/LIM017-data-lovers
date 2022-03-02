@@ -14,4 +14,4 @@ pokemonData.pokemon.forEach((pokemon) => {
 });
 
 const orderedResult = sortData(sortPokemon);
-console.log(orderedResult);
+console.table(orderedResult);
