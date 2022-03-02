@@ -1,7 +1,151 @@
-.containerFlex{
-	display: flex;
+* {
+  font-family: 'Lato', sans-serif;
 }
 
-body {
-    background: #fe23;
+header {
+  position: fixed;
+  width: 100%;
+  height: 66px;
+  left: 0px;
+  top: 0px;
+  background: #5EBDFC;
+}
+
+h1 {
+  position: absolute;
+  margin: 0%;
+  width: 245px;
+  height: 37px;
+  left: 91px;
+  top: 9px;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 37px;
+  line-height: 44px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+#front-logo > img {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 362px;
+  top: 14px;
+  margin: 0%;
+}
+
+
+
+.card {
+  width: 359px;
+  left: 31px;
+  top: 91px;
+  background: #EFFCD5;
+  border-radius: 8px;
+  color: #37796C;
+  text-align: center
+  margin: 3%;
+  padding-left: 6em;
+}
+
+.card > h2 {
+  display: block;
+  font-size: 1.5em;
+  margin-block-start: 0.83em;
+  margin-block-end: 0.83em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+}
+
+
+
+.container {
+  width: 359px;
+  height: 60px;
+  left: 104px;
+  top: 176px;
+  padding-left: 6em;
+}
+
+.container > p {
+  position: absolute;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 26px;
+  text-align: center;
+  color: #0C3348;
+
+}
+
+div#name-input > label {
+  position: absolute;
+  width: 44px;
+  height: 23px;
+  left: 50px;
+  top: 278px;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+}
+
+div#name-input > input#search {
+  position: absolute;
+  width: 228px;
+  height: 39px;
+  left: 100px;
+  top: 270px;
+  background: #FFFFFF;
+  border: 1px solid #C4C4C4;
+  border-radius: 6px;
+}
+
+div#type-input > label {
+  position: absolute;
+  width: 37px;
+  height: 18px;
+  left: 100px;
+  top: 340px;
+  font-family: Lato;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  color: #000000;
+}
+
+div#type-input select#select-type {
+  position: absolute;
+  width: 79px;
+  height: 30px;
+  left: 144px;
+  top: 334px;
+  background: #FFFFFF;
+  border: 1px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 6px;
+}
+
+div#sort-by > select {
+  position: absolute;
+  width: 59px;
+  height: 30px;
+  left: 240px;
+  top: 335px;
+  background: #FFFFFF;
+  border: 1px solid #C4C4C4;
+  box-sizing: border-box;
+  border-radius: 6px;
+}
+
+
+div#show-data {
+  padding-top: 221px;
 }

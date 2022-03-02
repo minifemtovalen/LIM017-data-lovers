@@ -4,6 +4,7 @@ import pokemonData from './data/pokemon/pokemon.js';
 
 const sortPokemon = pokemonData.pokemon;
 
+
 //Mostrando data en página principal
 const showData = document.querySelector('#show-data')
 pokemonData.pokemon.forEach((pokemon) => {
@@ -14,4 +15,3 @@ pokemonData.pokemon.forEach((pokemon) => {
 
 const orderedResult = sortData(sortPokemon);
 console.log(orderedResult);
-
