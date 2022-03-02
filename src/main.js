@@ -8,3 +8,5 @@ data.pokemon.forEach((pokemon) => {
   showPokemon.innerHTML = `<img src = ${pokemon.img}> ${pokemon.num} ${pokemon.name} ${pokemon.type}`
   showData.appendChild(showPokemon);
 });
+
+
