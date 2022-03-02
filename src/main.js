@@ -1,18 +1,17 @@
 import { sortData } from './data.js';
 
-import bigdata from './data/pokemon/pokemon.js';
+import pokemonData from './data/pokemon/pokemon.js';
 
-const sortPokemon = bigdata.pokemon;
+const sortPokemon = pokemonData.pokemon;
 
 //Mostrando data en página principal
-
 const showData = document.querySelector('#show-data')
-bigdata.pokemon.forEach((pokemon) => {
-    let pokemonData = document.createElement("div");
-    pokemonData.innerHTML = `<img src = ${pokemon.img}> ${pokemon.num} ${pokemon.name} ${pokemon.type}`
-    showData.appendChild(pokemonData);
+pokemonData.pokemon.forEach((pokemon) => {
+    const pokemonDiv = document.createElement('div');
+    pokemonDiv.innerHTML = `<img src = ${pokemon.img}> ${pokemon.num} ${pokemon.name} ${pokemon.type}`
+    showData.appendChild(pokemonDiv);
 });
 
-const orderedResult = sortData(sortPokemon);    
+const orderedResult = sortData(sortPokemon);
 console.log(orderedResult);
 
