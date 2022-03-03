@@ -9,6 +9,7 @@ header {
   left: 0px;
   top: 0px;
   background: #5EBDFC;
+  z-index: 100;
 }
 
 h1 {

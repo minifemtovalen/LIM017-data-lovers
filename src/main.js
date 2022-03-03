@@ -4,14 +4,22 @@ import pokemonData from './data/pokemon/pokemon.js';
 
 const sortPokemon = pokemonData.pokemon;
 
-
-//Mostrando data en página principal
 const showData = document.querySelector('#show-data')
-pokemonData.pokemon.forEach((pokemon) => {
-  const pokemonDiv = document.createElement('div');
-  pokemonDiv.innerHTML = `<img src = ${pokemon.img}> ${pokemon.num} ${pokemon.name} ${pokemon.type}`
-  showData.appendChild(pokemonDiv);
+const displayPokemon = (pokemonArr) => {
+  showData.innerHTML = "";
+  pokemonArr.forEach((pokemon) => {
+    const pokemonDiv = document.createElement('div');
+    pokemonDiv.className = 'pokemon-box';
+    pokemonDiv.innerHTML = `<img src = ${pokemon.img}> <div class="pokemon-num">${pokemon.num}</div> ${pokemon.name} ${pokemon.type}`
+    showData.appendChild(pokemonDiv);
+  });
+}
+
+displayPokemon(pokemonData.pokemon);
+const orderSelect = document.querySelector('#order-select');
+orderSelect.addEventListener('change', () => {
+  const orderedResult = sortData(sortPokemon, parseInt(orderSelect.value))
+  displayPokemon(orderedResult)
 });
 
-const orderedResult = sortData(sortPokemon);
-console.table(orderedResult);
+//console.table(orderedResult);
