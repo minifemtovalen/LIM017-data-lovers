@@ -12,6 +12,18 @@ export const sortData = (pokemons, order = 1) => {
   return orderedData;
 };
 
+export const filterData = (pokemons, type) => {
+  const filteredData = pokemons.filter((pokemon) => {
+    if(pokemon.type.includes(type)){
+      return true;
+    }
+    else {
+      return false;
+    }
+  })
+  return filteredData;
+};
+
 
 
 export const anotherExample = () => {

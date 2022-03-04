@@ -1,5 +1,4 @@
-import { sortData } from './data.js';
-
+import { sortData, filterData } from './data.js';
 import pokemonData from './data/pokemon/pokemon.js';
 
 const sortPokemon = pokemonData.pokemon;
@@ -22,4 +21,12 @@ orderSelect.addEventListener('change', () => {
   displayPokemon(orderedResult)
 });
 
+// console.log(filterData(pokemonData.pokemon, 'fairy'))
+
+displayPokemon(pokemonData.pokemon);
+const filterSelect = document.querySelector('#select-type');
+filterSelect.addEventListener('change', () => {
+  const filteredResult = filterData(pokemonData.pokemon, filterSelect.value)
+  displayPokemon(filteredResult)
+});
 //console.table(orderedResult);
