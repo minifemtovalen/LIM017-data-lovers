@@ -44,4 +44,3 @@ filterSelect.addEventListener('change', () => {
   }
 });
 //console.table(orderedResult);
-
