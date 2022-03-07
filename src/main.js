@@ -1,35 +1,46 @@
 import { sortData, filterData } from './data.js';
-
 import pokemonData from './data/pokemon/pokemon.js';
 
 const sortPokemon = pokemonData.pokemon;
-const filterPokemon = pokemonData.pokemon;
 
-//Mostrando Data completa en pantalla principal
 const showData = document.querySelector('#show-data')
 const displayPokemon = (pokemonArr) => {
   showData.innerHTML = "";
   pokemonArr.forEach((pokemon) => {
+    const typeList = pokemon.type.map((type) => {
+      return `<div class="${type} type-tag">${type}</div>`
+    });
     const pokemonDiv = document.createElement('div');
     pokemonDiv.className = 'pokemon-box';
-    pokemonDiv.innerHTML = `<img src = ${pokemon.img}> <div class="pokemon-num">${pokemon.num}</div> ${pokemon.name}`
+    pokemonDiv.innerHTML = `<img src = ${pokemon.img}>
+    <div class="pokemon-num">${pokemon.num}</div>
+    <div class="pokemon-name">${pokemon.name}</div>
+    <div class="pokemon-type">${typeList.join('')}</div>`
     showData.appendChild(pokemonDiv);
   });
 }
-//Ordenando Pokemons de A-Z y de Z-A por Nombre
 
-displayPokemon(pokemonData.pokemon);
+displayPokemon(sortPokemon);
 const orderSelect = document.querySelector('#order-select');
 orderSelect.addEventListener('change', () => {
-  const orderedResult = sortData(sortPokemon, parseInt(orderSelect.value))
-  displayPokemon(orderedResult)
+  if (orderSelect.value === 'all') {
+    displayPokemon(sortPokemon)
+  } else {
+    const orderedResult = sortData(sortPokemon, parseInt(orderSelect.value))
+    displayPokemon(orderedResult)
+  }
 });
 
-//Filtrando Pokemons por tipo
+// console.log(filterData(pokemonData.pokemon, 'fairy'))
 
-displayPokemon(pokemonData.pokemon);
+
 const filterSelect = document.querySelector('#select-type');
 filterSelect.addEventListener('change', () => {
-  const filteredResult = filterData(filterPokemon, filterSelect.value)
-  displayPokemon(filteredResult)
+  if (filterSelect.value === 'all') {
+    displayPokemon(sortPokemon)
+  } else {
+    const filteredResult = filterData(sortPokemon, filterSelect.value)
+    displayPokemon(filteredResult)
+  }
 });
+//console.table(orderedResult);
