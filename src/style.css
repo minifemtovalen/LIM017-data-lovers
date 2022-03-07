@@ -162,13 +162,24 @@ div#sort-by > select {
 
 div#show-data {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
   align-items: center;
   justify-items: center;
   margin-top: 1em;
   padding-top: 2em;
   gap: 2em;
 }
+
+/*div#show-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  margin-top: 1em;
+  padding-top: 2em;
+  gap: 2em;
+}*/
 
 .pokemon-box {
   background: #EFFCD5;
@@ -288,3 +299,15 @@ div#show-data {
 .water {
   background: #6890f0;
 }
+
+/*
+@media (min-width: 600px) and (max-width: 767px){
+
+}
+
+@media only screen and (min-width: 768px){
+  div.pokemon-box{
+    width: 15%;
+}
+}
+
