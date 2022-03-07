@@ -171,21 +171,21 @@ div#show-data {
   gap: 2em;
 }
 
-/*div#show-data {
+div#show-data {
+  padding-top: 221px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+div.pokemon-box{
+  width: 30%;
+  margin-bottom: 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-items: center;
-  margin-top: 1em;
-  padding-top: 2em;
-  gap: 2em;
-}*/
-
-.pokemon-box {
-  background: #EFFCD5;
-  border-radius: 8px;
-  position: relative;
-  width: 230px;
+  padding: 15px 0;
+  border: 1px solid #000000;
 }
 
 .pokemon-box > img {
@@ -227,83 +227,6 @@ div#show-data {
   border-radius: 8px;
   padding: 5px 9px;
 }
-
-.bug {
-  background: #9cb820;
-}
-
-.dark {
-  background: #504843;
-}
-
-.dragon {
-  background: #7a6cf8;
-}
-
-.electric {
-  background: #f8d030;
-}
-
-.fairy {
-  background: #ec99d9;
-}
-
-.fighting {
-  background: #c14228;
-}
-
-.flying {
-  background: #9096f0;
-}
-
-.fire {
-  background: #f08030;
-}
-
-.ghost {
-  background: #705898;
-}
-
-.grass {
-  background: #6ec22c;
-}
-
-.ground {
-  background: #e0b668;
-}
-
-.ice {
-  background: #98d8d8;
-}
-
-.normal {
-  background: #a8a8a8;
-}
-
-.poison {
-  background: #a2529f;
-}
-
-.psychic {
-  background: #ea5f88;
-}
-
-.rock {
-  background: #b8a038;
-}
-
-.steel {
-  background: #6d8f9c;
-}
-
-.water {
-  background: #6890f0;
-}
-<<<<<<< HEAD
-=======
-
-/*
->>>>>>> upstream/main
 @media (min-width: 600px) and (max-width: 767px){
 
 }
@@ -312,4 +235,4 @@ div#show-data {
   div.pokemon-box{
     width: 15%;
 }
-}
+} 
