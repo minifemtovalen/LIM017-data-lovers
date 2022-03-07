@@ -1,12 +1,15 @@
 import { sortData } from '../src/data.js';
 
+import pokemonData from './data/pokemon/pokemon.js';
+
 describe('sortData', () => {
   it('Debería ser una función', () => {
     expect(typeof sortData).toBe('function');
-  });
+  })
 
   it('Debería retornar Data de forma ascendiente', () => {
-    expect(sortData('charmander')).toBe('orderedData');
+    const ordenAscendent = pokemonData;
+    expect(sortData(pokemonData, "charmander")).toBe(ordenAscendent);
   });
 });
 
