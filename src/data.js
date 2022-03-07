@@ -1,6 +1,7 @@
 // Ordenando data alfabéticamente.
 export const sortData = (pokemons, order = 1) => {
-  const orderedData = pokemons.sort((a, b) => {
+  const avoidObjMutation = new Array(...pokemons);
+  const orderedData = avoidObjMutation.sort((a, b) => {
     if (a.name < b.name) {
       return -1 * order;
     }
@@ -13,7 +14,8 @@ export const sortData = (pokemons, order = 1) => {
 };
 
 export const filterData = (pokemons, type) => {
-  const filteredData = pokemons.filter((pokemon) => {
+  const avoidObjMutation = new Array(...pokemons);
+  const filteredData = avoidObjMutation.filter((pokemon) => {
     if(pokemon.type.includes(type)){
       return true;
     }
@@ -23,6 +25,7 @@ export const filterData = (pokemons, type) => {
   })
   return filteredData;
 };
+
 
 
 

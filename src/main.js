@@ -7,26 +7,41 @@ const showData = document.querySelector('#show-data')
 const displayPokemon = (pokemonArr) => {
   showData.innerHTML = "";
   pokemonArr.forEach((pokemon) => {
+    const typeList = pokemon.type.map((type) => {
+      return `<div class="${type} type-tag">${type}</div>`
+    });
     const pokemonDiv = document.createElement('div');
     pokemonDiv.className = 'pokemon-box';
-    pokemonDiv.innerHTML = `<img src = ${pokemon.img}> <div class="pokemon-num">${pokemon.num}</div> ${pokemon.name} ${pokemon.type}`
+    pokemonDiv.innerHTML = `<img src = ${pokemon.img}>
+    <div class="pokemon-num">${pokemon.num}</div>
+    <div class="pokemon-name">${pokemon.name}</div>
+    <div class="pokemon-type">${typeList.join('')}</div>`
     showData.appendChild(pokemonDiv);
   });
 }
 
-displayPokemon(pokemonData.pokemon);
+displayPokemon(sortPokemon);
 const orderSelect = document.querySelector('#order-select');
 orderSelect.addEventListener('change', () => {
-  const orderedResult = sortData(sortPokemon, parseInt(orderSelect.value))
-  displayPokemon(orderedResult)
+  if (orderSelect.value === 'all') {
+    displayPokemon(sortPokemon)
+  } else {
+    const orderedResult = sortData(sortPokemon, parseInt(orderSelect.value))
+    displayPokemon(orderedResult)
+  }
 });
 
 // console.log(filterData(pokemonData.pokemon, 'fairy'))
 
-displayPokemon(pokemonData.pokemon);
+
 const filterSelect = document.querySelector('#select-type');
 filterSelect.addEventListener('change', () => {
-  const filteredResult = filterData(pokemonData.pokemon, filterSelect.value)
-  displayPokemon(filteredResult)
+  if (filterSelect.value === 'all') {
+    displayPokemon(sortPokemon)
+  } else {
+    const filteredResult = filterData(sortPokemon, filterSelect.value)
+    displayPokemon(filteredResult)
+  }
 });
 //console.table(orderedResult);
+
