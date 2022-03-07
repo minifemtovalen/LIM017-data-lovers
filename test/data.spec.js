@@ -1,18 +1,17 @@
-import { example, anotherExample } from '../src/data.js';
+import { sortData } from '../src/data.js';
 
-
-describe('example', () => {
-  it('is a function', () => {
-    expect(typeof example).toBe('function');
+describe('sortData', () => {
+  it('Debería ser una función', () => {
+    expect(typeof sortData).toBe('function');
   });
 
-  it('returns `example`', () => {
-    expect(example()).toBe('example');
+  it('Debería retornar Data de forma ascendiente', () => {
+    expect(sortData('charmander')).toBe('orderedData');
   });
 });
 
 
-describe('anotherExample', () => {
+/*describe('anotherExample', () => {
   it('is a function', () => {
     expect(typeof anotherExample).toBe('function');
   });
@@ -20,4 +19,4 @@ describe('anotherExample', () => {
   it('returns `anotherExample`', () => {
     expect(anotherExample()).toBe('OMG');
   });
-});
+});*/

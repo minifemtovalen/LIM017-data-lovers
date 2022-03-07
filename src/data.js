@@ -11,11 +11,10 @@ export const sortData = (pokemons, order = 1) => {
   })
   return orderedData;
 };
-
+//Filtrando Pokemons por Tipo
 export const filterData = (pokemons, type) => {
   const filteredData = pokemons.filter((pokemon) => {
-    if(pokemon.type.num==type){
-      console.log(pokemon.type.num)
+    if(pokemon.type.includes(type)){
       return true;
     }
     else {
