@@ -53,13 +53,7 @@ div#front-logo {
   display: block;
   font-size: 1.5em;
   font-weight: bold;
-  /*margin-block-start: 0.83em;
-    margin-block-end: 0.83em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;*/
 }
-
-
 
 .container {
   display: grid;
@@ -82,20 +76,7 @@ div#search-bar {
   padding-right: 1em;
 }
 
-/*
-div#name-input > label {
-  width: 44px;
-  height: 23px;
-  left: 50px;
-  top: 278px;
-  font-family: Lato;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 17px;
-  color: #000000; */
-
-  div#name-input {
+div#name-input {
     display: grid;
     grid-template-columns: 52px 1fr;
     align-items: center;
@@ -105,10 +86,7 @@ div#name-input > label {
 }
 
 div#name-input > input#search {
-  /* width: 228px; */
   height: 39px;
-  /* left: 100px; */
-  /* top: 270px; */
   background: #FFFFFF;
   border: 1px solid #C4C4C4;
   border-radius: 6px;
@@ -123,16 +101,6 @@ div#type-input {
   place-self: center;
   gap: 8px;
 }
-
-/*
-div#type-input > label {
-  font-family: Lato;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 17px;
-  color: #000000;
-} */
 
 div#type-input select#select-type {
   height: 30px;
@@ -171,16 +139,6 @@ div#show-data {
   gap: 2em;
 }
 
-/*div#show-data {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-items: center;
-  margin-top: 1em;
-  padding-top: 2em;
-  gap: 2em;
-}*/
-
 .pokemon-box {
   background: #EFFCD5;
   border-radius: 8px;
@@ -188,9 +146,14 @@ div#show-data {
   width: 230px;
 }
 
-.pokemon-box > img {
-  width: 215px;
+.pokemon-img {
+  object-fit: scale-down;
+  padding: 35px 35px;
 }
+
+/*.pokemon-box > img {
+  width: 215px;
+}*/
 
 .pokemon-num {
   position: absolute;
@@ -300,7 +263,6 @@ div#show-data {
   background: #6890f0;
 }
 
-/*
 @media (min-width: 600px) and (max-width: 767px){
 
 }

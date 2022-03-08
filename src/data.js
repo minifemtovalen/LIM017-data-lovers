@@ -26,9 +26,6 @@ export const filterData = (pokemons, type) => {
   return filteredData;
 };
 
-
-
-
 export const anotherExample = () => {
   return 'OMG';
 };

@@ -12,7 +12,7 @@ const displayPokemon = (pokemonArr) => {
     });
     const pokemonDiv = document.createElement('div');
     pokemonDiv.className = 'pokemon-box';
-    pokemonDiv.innerHTML = `<img src = ${pokemon.img}>
+    pokemonDiv.innerHTML = `<img class="pokemon-img" src = ${pokemon.img}>
     <div class="pokemon-num">${pokemon.num}</div>
     <div class="pokemon-name">${pokemon.name}</div>
     <div class="pokemon-type">${typeList.join('')}</div>`
@@ -31,9 +31,6 @@ orderSelect.addEventListener('change', () => {
   }
 });
 
-// console.log(filterData(pokemonData.pokemon, 'fairy'))
-
-
 const filterSelect = document.querySelector('#select-type');
 filterSelect.addEventListener('change', () => {
   if (filterSelect.value === 'all') {
@@ -43,4 +40,3 @@ filterSelect.addEventListener('change', () => {
     displayPokemon(filteredResult)
   }
 });
-//console.table(orderedResult);
