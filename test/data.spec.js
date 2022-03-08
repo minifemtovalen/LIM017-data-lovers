@@ -3,7 +3,7 @@ import { filterData, sortData } from '../src/data.js';
 describe('sortData', () => {
   it('Es una función', () => {
     expect(typeof sortData).toBe('function');
-  });
+  })
 
   it('Debería retornar Data de forma ascendiente', () => {
     const arrayDisordered = [{ name: 'charizard' }, { name: 'squirtle' }, { name: 'butterfree' }];
