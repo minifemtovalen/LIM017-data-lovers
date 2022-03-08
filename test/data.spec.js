@@ -1,21 +1,32 @@
-import { sortData } from '../src/data.js';
+import { filterData, sortData } from '../src/data.js';
 
 describe('sortData', () => {
-  it('Debería ser una función', () => {
+  it('Es una función', () => {
     expect(typeof sortData).toBe('function');
-  });
+  })
 
   it('Debería retornar Data de forma ascendiente', () => {
-    expect(sortData('charmander')).toBe('orderedData');
+    const arrayDisordered = [{ name: 'charizard' }, { name: 'squirtle' }, { name: 'butterfree' }];
+    const arrayAscendancy = [{ name: 'butterfree' }, { name: 'charizard' }, { name: 'squirtle' }];
+    expect(sortData(arrayDisordered)).toEqual(arrayAscendancy);
+  });
+
+  it('Debería retornar Data de forma descendiente', () => {
+    const arrayDisordered = [{ name: 'charizard' }, { name: 'squirtle' }, { name: 'butterfree' }];
+    const arrayDescendant = [{ name: 'squirtle' }, { name: 'charizard' }, { name: 'butterfree' }];
+    expect(sortData(arrayDisordered)).toEqual(arrayDescendant);
   });
 });
 
+describe('filterData', () => {
+  it('Es una función', () => {
+    expect(typeof filterData).toBe('function');
+  });
 
-/*describe('anotherExample', () => {
-  it('is a function', () => {
-    expect(typeof anotherExample).toBe('function');
+  it('Debería retornar filtro por tipo', () => {
+    const arrayWithoutFilter = [{ name: 'seel', type: 'water' }, { name: 'squirtle', type: 'water' }, { name: 'butterfree', type: 'flying' }];
+    const arrayWithFilter = [{ name: 'seel', type: 'water' }, { name: 'squirtle', type: 'water' }];
+
+    expect(filterData(arrayWithoutFilter, 'water')).toEqual(arrayWithFilter);
   });
-  it('returns `anotherExample`', () => {
-    expect(anotherExample()).toBe('OMG');
-  });
-});*/
+});
