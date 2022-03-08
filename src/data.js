@@ -26,6 +26,11 @@ export const filterData = (pokemons, type) => {
   return filteredData;
 };
 
+export const genFilter = (pokemons, gen) => {
+  const avoidObjMutation = new Array(...pokemons);
+  const genFiltered = avoidObjMutation.filter((pokemon) => pokemon.generation.name.includes(gen));
+  return genFiltered;
+};
 
 
 

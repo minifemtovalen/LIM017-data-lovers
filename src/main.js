@@ -1,4 +1,4 @@
-import { sortData, filterData } from './data.js';
+import { sortData, filterData, genFilter } from './data.js';
 import pokemonData from './data/pokemon/pokemon.js';
 
 const sortPokemon = pokemonData.pokemon;
@@ -43,4 +43,5 @@ filterSelect.addEventListener('change', () => {
     displayPokemon(filteredResult)
   }
 });
-//console.table(orderedResult);
+
+//console.log(genFilter(sortPokemon, 'johto'));
