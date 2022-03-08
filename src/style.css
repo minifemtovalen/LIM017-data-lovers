@@ -180,8 +180,7 @@ div#show-data {
 }
 
 .pokemon-box:hover {
-  -webkit-transform:scale(1.3);
-  transform:scale(1.2);
+  transform:scale(1.3);
 }
 
 .pokemon-img {
