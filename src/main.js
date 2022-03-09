@@ -1,8 +1,8 @@
 import { sortData, filterData, genFilter } from './data.js';
 import pokemonData from './data/pokemon/pokemon.js';
 
-const sortPokemon = pokemonData.pokemon;
-let dataState = [...sortPokemon];
+const originalData = pokemonData.pokemon;
+let dataState = [...originalData];
 const showData = document.querySelector('#show-data')
 const displayPokemon = (pokemonArr) => {
   showData.innerHTML = "";
@@ -24,7 +24,8 @@ displayPokemon(dataState);
 const orderSelect = document.querySelector('#order-select');
 orderSelect.addEventListener('change', () => {
   if (orderSelect.value === 'all') {
-    displayPokemon(sortPokemon)
+    displayPokemon(originalData)
+    dataState = originalData;
   } else {
     const orderedResult = sortData(dataState, parseInt(orderSelect.value))
     displayPokemon(orderedResult)
@@ -38,12 +39,16 @@ orderSelect.addEventListener('change', () => {
 const filterSelect = document.querySelector('#select-type');
 filterSelect.addEventListener('change', () => {
   if (filterSelect.value === 'all') {
-    displayPokemon(sortPokemon)
+    displayPokemon(originalData)
+    dataState = originalData;
   } else {
-    const filteredResult = filterData(sortPokemon, filterSelect.value)
+    const filteredResult = filterData(originalData, filterSelect.value)
     displayPokemon(filteredResult)
     dataState = filteredResult;
   }
 });
 
-console.log(genFilter(sortPokemon, 'johto'));
+console.log(genFilter(originalData, 'johto'));
+
+//funcion para buscar pokemons
+

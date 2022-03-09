@@ -156,8 +156,9 @@ div#show-data {
   align-items: center;
   justify-items: center;
   margin-top: 2em;
+  margin-bottom: 4em;
   padding-top: 2em;
-  gap: 2em;
+  gap: 4em;
 }
 
 /*div#show-data {

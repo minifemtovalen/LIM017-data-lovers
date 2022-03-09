@@ -34,7 +34,3 @@ export const genFilter = (pokemons, gen) => {
 
 
 
-export const anotherExample = () => {
-  return 'OMG';
-};
-
