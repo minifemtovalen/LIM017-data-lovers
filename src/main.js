@@ -2,7 +2,7 @@ import { sortData, filterData, genFilter } from './data.js';
 import pokemonData from './data/pokemon/pokemon.js';
 
 const sortPokemon = pokemonData.pokemon;
-
+let dataState = [...sortPokemon];
 const showData = document.querySelector('#show-data')
 const displayPokemon = (pokemonArr) => {
   showData.innerHTML = "";
@@ -20,14 +20,15 @@ const displayPokemon = (pokemonArr) => {
   });
 }
 
-displayPokemon(sortPokemon);
+displayPokemon(dataState);
 const orderSelect = document.querySelector('#order-select');
 orderSelect.addEventListener('change', () => {
   if (orderSelect.value === 'all') {
     displayPokemon(sortPokemon)
   } else {
-    const orderedResult = sortData(sortPokemon, parseInt(orderSelect.value))
+    const orderedResult = sortData(dataState, parseInt(orderSelect.value))
     displayPokemon(orderedResult)
+    dataState = orderedResult;
   }
 });
 
@@ -41,6 +42,7 @@ filterSelect.addEventListener('change', () => {
   } else {
     const filteredResult = filterData(sortPokemon, filterSelect.value)
     displayPokemon(filteredResult)
+    dataState = filteredResult;
   }
 });
 
