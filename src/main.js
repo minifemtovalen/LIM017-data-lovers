@@ -1,4 +1,4 @@
-import { sortData, filterData, genFilter } from './data.js';
+import { sortData, filterData, searchPokeByName } from './data.js';
 import pokemonData from './data/pokemon/pokemon.js';
 
 const originalData = pokemonData.pokemon;
@@ -48,7 +48,21 @@ filterSelect.addEventListener('change', () => {
   }
 });
 
-console.log(genFilter(originalData, 'johto'));
+//function for search input
+
+const searchInput = document.querySelector('#search');
+
+const searchResult = () => {
+  dataState = searchPokeByName(originalData, searchInput.value);
+  console.log(dataState)
+  displayPokemon(dataState);
+  if(dataState.length === 0) {
+    showData.innerHTML += `<p>Pokemon no encontrado</p>`
+  }
+}
+searchInput.addEventListener('keyup', searchResult);
+
+//console.log(genFilter(originalData, 'johto'));
 
 //funcion para buscar pokemons
 

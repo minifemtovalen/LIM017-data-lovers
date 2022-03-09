@@ -26,6 +26,16 @@ export const filterData = (pokemons, type) => {
   return filteredData;
 };
 
+export const searchPokeByName = (pokemons, name) => {
+  return pokemons.filter((pokemon) => {
+    const pokemonName = pokemon.name.toLowerCase();
+    console.log(name);
+    if(pokemonName.indexOf(name) !== -1) {
+      return pokemon;
+    }
+  })
+}
+
 export const genFilter = (pokemons, gen) => {
   const avoidObjMutation = new Array(...pokemons);
   const genFiltered = avoidObjMutation.filter((pokemon) => pokemon.generation.name.includes(gen));
