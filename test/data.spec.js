@@ -14,7 +14,7 @@ describe('sortData', () => {
   it('Debería retornar Data de forma descendiente', () => {
     const arrayDisordered = [{ name: 'charizard' }, { name: 'squirtle' }, { name: 'butterfree' }];
     const arrayDescendant = [{ name: 'squirtle' }, { name: 'charizard' }, { name: 'butterfree' }];
-    expect(sortData(arrayDisordered)).toEqual(arrayDescendant);
+    expect(sortData(arrayDisordered, -1)).toEqual(arrayDescendant);
   });
 });
 

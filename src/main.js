@@ -44,4 +44,4 @@ filterSelect.addEventListener('change', () => {
   }
 });
 
-//console.log(genFilter(sortPokemon, 'johto'));
+console.log(genFilter(sortPokemon, 'johto'));
