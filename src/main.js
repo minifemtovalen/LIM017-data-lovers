@@ -1,4 +1,4 @@
-import { sortData, filterData, searchPokeByName } from './data.js';
+import { sortData, filterData, searchPokemonByName} from './data.js';
 import pokemonData from './data/pokemon/pokemon.js';
 
 const originalData = pokemonData.pokemon;
@@ -33,9 +33,6 @@ orderSelect.addEventListener('change', () => {
   }
 });
 
-// console.log(filterData(pokemonData.pokemon, 'fairy'))
-
-
 const filterSelect = document.querySelector('#select-type');
 filterSelect.addEventListener('change', () => {
   if (filterSelect.value === 'all') {
@@ -49,18 +46,38 @@ filterSelect.addEventListener('change', () => {
 });
 
 //function for search input
-
 const searchInput = document.querySelector('#search');
 
 const searchResult = () => {
-  dataState = searchPokeByName(originalData, searchInput.value);
-  console.log(dataState)
+  dataState = searchPokemonByName(originalData, searchInput.value);
   displayPokemon(dataState);
   if(dataState.length === 0) {
     showData.innerHTML += `<p>Pokemon no encontrado</p>`
   }
 }
 searchInput.addEventListener('keyup', searchResult);
+
+
+
+/**
+ * const searchInput = document.querySelector('#search')
+const searchPokeByName = () => {
+  const text = searchInput.value.toLowerCase();
+  const result = [];
+  for (let pokemon of originalData) {
+    const name = pokemon.name.toLowerCase();
+    if(name.indexOf(text) !== -1){
+      result.push(pokemon);
+    }
+  }
+  displayPokemon(result);
+  if(result.innerHTML === '') {
+    result.innerHTML += `<p>Pokemon no encontrado</p>`
+  }
+}
+searchInput.addEventListener('keyup', searchPokeByName);
+ */
+
 
 //console.log(genFilter(originalData, 'johto'));
 
