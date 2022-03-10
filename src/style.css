@@ -129,6 +129,11 @@ div#type-input select#select-type {
   padding: 3px;
 }
 
+option {
+  color: white;
+  font-weight: bold;
+}
+
 div#sort-by {
   display: grid;
 }
@@ -228,75 +233,75 @@ div#show-data {
   padding: 5px 9px;
 }
 
-.bug {
+.bug, #bug {
   background: #9cb820;
 }
 
-.dark {
+.dark, #dark {
   background: #504843;
 }
 
-.dragon {
+.dragon, #dragon {
   background: #7a6cf8;
 }
 
-.electric {
+.electric, #electric {
   background: #f8d030;
 }
 
-.fairy {
+.fairy, #fairy {
   background: #ec99d9;
 }
 
-.fighting {
+.fighting, #fighting {
   background: #c14228;
 }
 
-.flying {
+.flying, #flying {
   background: #9096f0;
 }
 
-.fire {
+.fire, #fire {
   background: #f08030;
 }
 
-.ghost {
+.ghost, #ghost {
   background: #705898;
 }
 
-.grass {
+.grass, #grass {
   background: #6ec22c;
 }
 
-.ground {
+.ground, #ground {
   background: #e0b668;
 }
 
-.ice {
+.ice, #ice {
   background: #98d8d8;
 }
 
-.normal {
+.normal, #normal {
   background: #a8a8a8;
 }
 
-.poison {
+.poison, #poison {
   background: #a2529f;
 }
 
-.psychic {
+.psychic, #psychic {
   background: #ea5f88;
 }
 
-.rock {
+.rock, #rock {
   background: #b8a038;
 }
 
-.steel {
+.steel, #steel {
   background: #6d8f9c;
 }
 
-.water {
+.water, #water {
   background: #6890f0;
 }
 
