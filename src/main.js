@@ -52,7 +52,15 @@ const searchResult = () => {
   dataState = searchPokemonByName(originalData, searchInput.value);
   displayPokemon(dataState);
   if(dataState.length === 0) {
-    showData.innerHTML += `<p>Pokemon no encontrado</p>`
+    showData.innerHTML += `<div class="search-alert">
+    <h3>No Pokémon matched your search.</h3>
+    <p>Try the following to find results:</p>
+    <ul>
+      <li>Reduce the number of search parameters.</li>
+      <li>Search for Pokémon types one at a time.</li>
+      <li>Try to sort them ascending or descending.</li>
+    </ul>
+    </div>`
   }
 }
 searchInput.addEventListener('keyup', searchResult);
