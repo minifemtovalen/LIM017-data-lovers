@@ -26,7 +26,6 @@ export const filterData = (pokemons, type) => {
   return filteredData;
 };
 
-
 export const searchPokemonByName = (pokemons, name) => {
   return pokemons.filter((pokemon) => {
     const pokemonName = pokemon.name.toLowerCase();
@@ -35,9 +34,6 @@ export const searchPokemonByName = (pokemons, name) => {
     }
   })
 }
-
-
-
 
 export const genFilter = (pokemons, gen) => {
   const avoidObjMutation = new Array(...pokemons);

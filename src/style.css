@@ -129,9 +129,13 @@ div#type-input select#select-type {
   padding: 3px;
 }
 
-option {
+select#select-type > option {
   color: white;
   font-weight: bold;
+}
+
+option#all {
+  background: #0075BE;
 }
 
 div#sort-by {
@@ -148,6 +152,23 @@ div#sort-by > select {
   box-sizing: border-box;
   border-radius: 6px;
   padding: 3px;
+}
+
+select#order-select > option {
+  color: white;
+  font-weight: bold;
+}
+
+option#original {
+background: #E3350D;
+}
+
+option#asc {
+  background: #EE6B2F;
+}
+
+option#desc {
+  background: #FFCC00;
 }
 
 section#show-pokemon {
@@ -177,7 +198,7 @@ div#show-data {
 }*/
 
 .pokemon-box {
-  border: 2px dashed #16D6FB;;
+  border: 2px dashed #09c077;;
   background: #EFFCD5;
   border-radius: 8px;
   position: relative;
@@ -213,7 +234,7 @@ div#show-data {
   position: absolute;
   top: 11px;
   right: 11px;
-  padding: 5px 3px;
+  padding: 5px 5px;
   color: #37796C;
   font-weight: bold;
   border-radius: 8px;
