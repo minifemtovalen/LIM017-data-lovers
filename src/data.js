@@ -1,6 +1,6 @@
 // Ordenando data alfabéticamente.
 
-  export const sortData = (pokemons, order = 1) => {
+export const sortData = (pokemons, order = 1) => {
   const avoidObjMutation = new Array(...pokemons);
   const orderedData = avoidObjMutation.sort((a, b) => {
     if (a.name < b.name) {
@@ -30,7 +30,7 @@ export const filterData = (pokemons, type) => {
 
 //Filtrando Pokemons por Generación
 
-export const genFilter = (pokemons, gen) => {
+export const generationFilter = (pokemons, gen) => {
   const genFiltered = pokemons.filter((pokemon) => {
     if (pokemon.generation.name.includes(gen)) {
       return true;
@@ -42,7 +42,17 @@ export const genFilter = (pokemons, gen) => {
   return genFiltered;
 };
 
-/*export const anotherExample = () => {
-  return 'OMG';
-};*/
+
+//Buscando Pokemons por Nombre
+
+export const searchPokemonByName = (pokemons, name) => {
+  return pokemons.filter((pokemon) => {
+    const pokemonName = pokemon.name.toLowerCase();
+    if (pokemonName.indexOf(name) !== -1) {
+      return pokemon;
+    }
+  })
+}
+
+//Obteniendo estadísticas
 

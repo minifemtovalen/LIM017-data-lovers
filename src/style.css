@@ -116,6 +116,14 @@ div#type-input select#select-type {
   padding: 3px;
 }
 
+select#select-type > option {
+  color: white;
+  font-weight: bold;
+}
+
+option#all {
+  background: #0075BE;
+}
 div#sort-by {
   display: grid;
 }
@@ -132,6 +140,27 @@ div#sort-by > select {
   padding: 3px;
 }
 
+select#order-select > option {
+  color: white;
+  font-weight: bold;
+}
+
+option#original {
+background: #E3350D;
+}
+
+option#asc {
+  background: #EE6B2F;
+}
+
+option#desc {
+  background: #FFCC00;
+}
+
+section#show-pokemon {
+  margin: 3px;
+}
+
 div#show-data {
   display: flex;
   flex-wrap: wrap;
@@ -140,7 +169,7 @@ div#show-data {
   justify-items: center;
   margin-top: 1em;
   padding-top: 2em;
-  gap: 2em;
+  gap: 4em;
 }
 
 .pokemon-box {
@@ -199,80 +228,126 @@ div#show-data {
   padding: 5px 9px;
 }
 
-.bug {
+.bug, #bug {
   background: #9cb820;
 }
 
-.dark {
+.dark, #dark {
   background: #504843;
 }
 
-.dragon {
+.dragon, #dragon {
   background: #7a6cf8;
 }
 
-.electric {
+.electric, #electric {
   background: #f8d030;
 }
 
-.fairy {
+.fairy, #fairy {
   background: #ec99d9;
 }
 
-.fighting {
+.fighting, #fighting {
   background: #c14228;
 }
 
-.flying {
+.flying, #flying {
   background: #9096f0;
 }
 
-.fire {
+.fire, #fire {
   background: #f08030;
 }
 
-.ghost {
+.ghost, #ghost {
   background: #705898;
 }
 
-.grass {
+.grass, #grass {
   background: #6ec22c;
 }
 
-.ground {
+.ground, #ground {
   background: #e0b668;
 }
 
-.ice {
+.ice, #ice {
   background: #98d8d8;
 }
 
-.normal {
+.normal, #normal {
   background: #a8a8a8;
 }
 
-.poison {
+.poison, #poison {
   background: #a2529f;
 }
 
-.psychic {
+.psychic, #psychic {
   background: #ea5f88;
 }
 
-.rock {
+.rock, #rock {
   background: #b8a038;
 }
 
-.steel {
+.steel, #steel {
   background: #6d8f9c;
 }
 
-.water {
+.water, #water {
   background: #6890f0;
 }
 
 footer {
   text-align: center;
+}
+
+.container_modal {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal{
+  width: 40%;
+  height: 50%;
+  background: #ffff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  position: relative;
+  transition: transform 1s;
+  border-radius: 10px;
+}
+
+.close_modal{
+  transform: translateY(0%);
+}
+
+.close{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  background: #c44a4a;
+  color: #ffff;
+  line-height: 25px;
+  cursor: pointer;
+  border-radius: 50%;
 }
 
 /*@media (min-width: 600px) and (max-width: 767px){

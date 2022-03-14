@@ -1,8 +1,11 @@
-import { sortData, filterData, genFilter } from './data.js';
+import { sortData, filterData, searchPokemonByName } from './data.js';
 import pokemonData from './data/pokemon/pokemon.js';
 
 const originalData = pokemonData.pokemon;
 let dataState = [...originalData];
+
+
+//Mostrando Pokemons en Pantalla Principal
 
 const showData = document.querySelector('#show-data')
 const displayPokemon = (pokemonArr) => {
@@ -21,11 +24,14 @@ const displayPokemon = (pokemonArr) => {
   });
 }
 
+//Ordenando Pokemons de forma ascendiente y descendiente
+
 displayPokemon(dataState);
 const orderSelect = document.querySelector('#order-select');
 orderSelect.addEventListener('change', () => {
   if (orderSelect.value === 'all') {
     displayPokemon(originalData)
+    dataState = originalData;
   } else {
     const orderedResult = sortData(dataState, parseInt(orderSelect.value))
     displayPokemon(orderedResult)
@@ -33,10 +39,13 @@ orderSelect.addEventListener('change', () => {
   }
 });
 
+//Filtrando Pokemons por Tipo
+
 const filterSelect = document.querySelector('#select-type');
 filterSelect.addEventListener('change', () => {
   if (filterSelect.value === 'all') {
     displayPokemon(originalData)
+    dataState = originalData;
   } else {
     const filteredResult = filterData(originalData, filterSelect.value)
     displayPokemon(filteredResult)
@@ -44,26 +53,51 @@ filterSelect.addEventListener('change', () => {
   }
 });
 
-console.log(genFilter(originalData, 'johto'))
+//Buscando Pokemons por Nombre
 
-//Búsqueda por Nombre
+const searchInput = document.querySelector('#search');
 
-const searchByName = document.querySelector('#search')
-const result = document.querySelector('#show-data')
-const searchPokemon = () => {
-  result.innerHTML = '';
-  const text = searchByName.value.toLowerCase();
-  for (let pokemon of originalData) {
-    let name = pokemon.name.toLowerCase();
-    if(name.indexOf(text) !== -1){
-      result.innerHTML += `<img class="pokemon-img" src = ${pokemon.img}>
-      <div class="pokemon-num">${pokemon.num}</div>
-      <div class="pokemon-name">${pokemon.name}</div>`
-    }
-  }
-  if(result.innerHTML === '') {
-    result.innerHTML += `<p>Pokemon no encontrado</p>`
+const searchResult = () => {
+  dataState = searchPokemonByName(originalData, searchInput.value);
+  displayPokemon(dataState);
+  if (dataState.length === 0) {
+    showData.innerHTML += `<p>Pokemon no encontrado</p>`
   }
 }
-searchByName.addEventListener('keyup', searchPokemon)
-searchPokemon();
+searchInput.addEventListener('keyup', searchResult);
+
+//Mostrando características a través de Modal
+
+let close = document.querySelectorAll('.close')[0];
+let open = document.querySelectorAll('.pokemon-box')[0];
+let modal = document.querySelectorAll('.modal')[0];
+let modalContainer = document.querySelectorAll('.container_modal')[0];
+
+open.addEventListener('click', () => {
+  modalContainer.style.opacity = '1';
+  modalContainer.style.visibility = 'visible';
+  modal.classList.toggle('close-modal');
+})
+
+close.addEventListener('click', () => {
+  modal.classList.toggle('close-modal');
+  setTimeout(() => {
+    modalContainer.style.opacity = '0';
+    modalContainer.style.visibility = 'hidden';
+  }, 500)
+})
+
+window.addEventListener('click', (e) => {
+  if (e.target == modalContainer) {
+    modal.classList.toggle('close-modal');
+    setTimeout(() => {
+      modalContainer.style.opacity = '0';
+      modalContainer.style.visibility = 'hidden';
+    }, 500)
+  }
+})
+
+
+
+
+
