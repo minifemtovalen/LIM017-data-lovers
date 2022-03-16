@@ -304,7 +304,7 @@ footer {
   text-align: center;
 }
 
-.container_modal {
+.modal_container {
   opacity: 0;
   visibility: hidden;
   position: fixed;
@@ -319,7 +319,7 @@ footer {
   align-items: center;
 }
 
-.modal{
+.modal_content{
   width: 40%;
   height: 50%;
   background: #ffff;
@@ -332,7 +332,7 @@ footer {
   border-radius: 10px;
 }
 
-.close_modal{
+.modal_close{
   transform: translateY(0%);
 }
 

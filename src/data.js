@@ -56,3 +56,6 @@ export const searchPokemonByName = (pokemons, name) => {
 
 //Obteniendo estadísticas
 
+ 
+
+/*Return {…Pokemon, statSumado: [aqui va la suma]}*/

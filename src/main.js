@@ -1,9 +1,11 @@
-import { sortData, filterData, searchPokemonByName } from './data.js';
+import { sortData, filterData, searchPokemonByName, /*generationFilter*/ } from './data.js';
 import pokemonData from './data/pokemon/pokemon.js';
 
 const originalData = pokemonData.pokemon;
+const modalContainer = document.querySelectorAll('.modal_container')[0];
+const modalContent = document.querySelectorAll(".modal_content")[0];
+const close = document.querySelectorAll(".close")[0];
 let dataState = [...originalData];
-
 
 //Mostrando Pokemons en Pantalla Principal
 
@@ -66,21 +68,35 @@ const searchResult = () => {
 }
 searchInput.addEventListener('keyup', searchResult);
 
-//Mostrando características a través de Modal
+//Mostran Info Modal
 
-let close = document.querySelectorAll('.close')[0];
-let open = document.querySelectorAll('.pokemon-box')[0];
-let modal = document.querySelectorAll('.modal')[0];
-let modalContainer = document.querySelectorAll('.container_modal')[0];
+document.querySelectorAll('.pokemon-box').forEach((pokemon) => {
+  pokemon.addEventListener('click', () => {
+    modalContainer.style.opacity = '1';
+    modalContainer.style.visibility = 'visible';
+    modalContent.classList.toggle('modal_close');
+    const name = document.querySelector(".name")
+    const img = document.querySelector(".img")
+    const num = document.querySelector(".num")
+    const type = document.querySelector(".type")
+    const height = document.querySelector(".height")
+    const weight = document.querySelector(".weight")
+    const candy = document.querySelector(".candy")
+    const nextEvolution = document.querySelector(".next_evolution")
 
-open.addEventListener('click', () => {
-  modalContainer.style.opacity = '1';
-  modalContainer.style.visibility = 'visible';
-  modal.classList.toggle('close-modal');
-})
+    name.innerHTML = pokemon.name
+    img.setAttribute("src", pokemon.img)
+    num.innerHTML = pokemon.num
+    type.innerHTML = `TIPO: ${pokemon.type.join(", ")}`
+    height.innerHTML = `HEIGHT: ${pokemon.height}`
+    weight.innerHTML = `WEIGHT: ${pokemon.weight}`
+    candy.innerHTML = `Candy: ${pokemon.candy}`
+    nextEvolution.innerHTML = `NEXT EVOLUTION: ${pokemon.next_evolution ? pokemon.next_evolution.map(evolution => evolution.name).join(", ") : "This is the last evolution"}`
+  })
+});
 
 close.addEventListener('click', () => {
-  modal.classList.toggle('close-modal');
+  modalContent.classList.toggle('modal_close');
   setTimeout(() => {
     modalContainer.style.opacity = '0';
     modalContainer.style.visibility = 'hidden';
@@ -89,15 +105,10 @@ close.addEventListener('click', () => {
 
 window.addEventListener('click', (e) => {
   if (e.target == modalContainer) {
-    modal.classList.toggle('close-modal');
+    modalContent.classList.toggle('modal_close');
     setTimeout(() => {
       modalContainer.style.opacity = '0';
       modalContainer.style.visibility = 'hidden';
-    }, 500)
+    }, 300)
   }
-})
-
-
-
-
-
+});
