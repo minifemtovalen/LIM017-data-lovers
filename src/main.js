@@ -1,4 +1,4 @@
-import { sortData, filterData, searchPokemonByName} from './data.js';
+import { sortData, filterData, searchPokemonByName } from './data.js';
 import pokemonData from './data/pokemon/pokemon.js';
 
 const originalData = pokemonData.pokemon;
@@ -65,6 +65,13 @@ const searchResult = () => {
 }
 searchInput.addEventListener('keyup', searchResult);
 
+const hamburgerBtn = document.querySelector('#burger-btn');
+const toggleMenu = () => {
+  const navBar = document.querySelector('.top-nav');
+  navBar.classList.toggle('hidden-nav');
+}
+
+hamburgerBtn.addEventListener('click', toggleMenu);
 
 
 /**
