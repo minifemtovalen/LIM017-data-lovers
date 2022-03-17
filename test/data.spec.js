@@ -1,4 +1,7 @@
-import { filterData, sortData } from '../src/data.js';
+import { sortData, filterData, searchPokemonByName} from './data.js';
+import pokemonData from './data/pokemon/pokemon.js';
+
+const originalData = pokemonData.pokemon;
 
 describe('sortData', () => {
   it('Es una función', () => {
@@ -29,5 +32,21 @@ describe('filterData', () => {
     const arrayWithFilter = [{ name: 'seel', type: 'water' }, { name: 'squirtle', type: 'water' }];
 
     expect(filterData(arrayWithoutFilter, 'water')).toEqual(arrayWithFilter);
+  });
+});
+
+describe('searchPokemonByName', () => {
+  it('should be an function', () => {
+    expect(typeof searchPokemonByName).toBe('function');
+  });
+
+  it('should throw TypeError', () => {
+    expect(() => searchPokemonByName()).toThrow(TypeError);
+    expect(() => searchPokemonByName(0)).toThrow(TypeError);
+    expect(() => searchPokemonByName(null)).toThrow(TypeError);
+  });
+
+  it('should return an "squirtle" for "SQUIRTLE"', () => {
+    expect(searchPokemonByName(originalData, "SQUIRTLE")[0].name).toBe("squirtle")
   });
 });

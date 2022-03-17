@@ -1,4 +1,4 @@
-import { sortData, filterData, searchPokemonByName, /*generationFilter*/ } from './data.js';
+import { sortData, filterData, searchPokemonByName, /*generationFilter*/ computeStats} from './data.js';
 import pokemonData from './data/pokemon/pokemon.js';
 
 const originalData = pokemonData.pokemon;
@@ -6,6 +6,8 @@ const modalContainer = document.querySelectorAll('.modal_container')[0];
 const modalContent = document.querySelectorAll(".modal_content")[0];
 const close = document.querySelectorAll(".close")[0];
 let dataState = [...originalData];
+
+console.log(computeStats(originalData))
 
 //Mostrando Pokemons en Pantalla Principal
 
@@ -75,23 +77,23 @@ document.querySelectorAll('.pokemon-box').forEach((pokemon) => {
     modalContainer.style.opacity = '1';
     modalContainer.style.visibility = 'visible';
     modalContent.classList.toggle('modal_close');
-    const name = document.querySelector(".name")
-    const img = document.querySelector(".img")
-    const num = document.querySelector(".num")
-    const type = document.querySelector(".type")
-    const height = document.querySelector(".height")
+    const name = document.querySelector(".name");
+    const img = document.querySelector(".img");
+    const num = document.querySelector(".num");
+    const type = document.querySelector(".type");
+    const height = document.querySelector(".height");
     const weight = document.querySelector(".weight")
     const candy = document.querySelector(".candy")
     const nextEvolution = document.querySelector(".next_evolution")
 
-    name.innerHTML = pokemon.name
-    img.setAttribute("src", pokemon.img)
+    name.innerHTML = pokemon.name 
+    img.setAttribute("src", pokemon.img)   
     num.innerHTML = pokemon.num
     type.innerHTML = `TIPO: ${pokemon.type.join(", ")}`
     height.innerHTML = `HEIGHT: ${pokemon.height}`
     weight.innerHTML = `WEIGHT: ${pokemon.weight}`
     candy.innerHTML = `Candy: ${pokemon.candy}`
-    nextEvolution.innerHTML = `NEXT EVOLUTION: ${pokemon.next_evolution ? pokemon.next_evolution.map(evolution => evolution.name).join(", ") : "This is the last evolution"}`
+    nextEvolution.innerHTML = `NEXT EVOLUTION: ${pokemon['next-evolution'] ? pokemon['next-evolution'].map(evolution => evolution.name).join(", ") : "This is the last evolution"}`
   })
 });
 

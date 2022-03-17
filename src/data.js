@@ -46,9 +46,10 @@ export const generationFilter = (pokemons, gen) => {
 //Buscando Pokemons por Nombre
 
 export const searchPokemonByName = (pokemons, name) => {
+
   return pokemons.filter((pokemon) => {
-    const pokemonName = pokemon.name.toLowerCase();
-    if (pokemonName.indexOf(name) !== -1) {
+    const pokemonName = pokemon.name;
+    if (pokemonName.toUpperCase().indexOf(name.toUpperCase()) !== -1) {
       return pokemon;
     }
   })
@@ -56,6 +57,11 @@ export const searchPokemonByName = (pokemons, name) => {
 
 //Obteniendo estadísticas
 
- 
+export const computeStats = (topTen) => {
+  topTen.forEach((pokemon) => {
+  let baseAttack = parseInt(pokemon.stats['base-attack'])
+  console.log(baseAttack)
+})
+};
 
 /*Return {…Pokemon, statSumado: [aqui va la suma]}*/
