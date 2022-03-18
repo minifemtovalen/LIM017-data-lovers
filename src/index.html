@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#5EBDFC"/>
     <title>Pokémon GO! DB</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" type="image/x-icon" href="/im/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -19,8 +19,14 @@
         <div id="front-logo"><img src="./img/front-logo.png" alt="Pokemon GO database, Pokemon stats and wiki"></div>
       </header>
       <nav class="top-nav hidden-nav" id="top-navbar">
-        <a href="#home">Home</a>
-        <a href="#generation">Generation</a>
+        <a href="javascript:location.reload()">Home</a>
+        <div class="dropdown">
+          <button id="drop-btn" type="button"><span>Generations </span><img src="./img/angle-down-solid (1).svg"></button>
+          <div class="dropdown-content">
+            <a href="#generationi">Kanto</a>
+            <a href="#generationii">Johto</a>
+          </div>
+        </div>
         <a href="#ranking">Ranking</a>
         <a href="compare pokemons">Compare Pokemons</a>
       </nav>
@@ -72,6 +78,7 @@
       <section id="show-pokemon">
         <div id="show-data"></div>
       </section>
+      <!-- modal -->
     </main>
     <footer class="footer"></footer>
     <div id="root"></div>

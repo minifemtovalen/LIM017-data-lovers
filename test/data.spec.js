@@ -1,4 +1,4 @@
-import { filterData, sortData } from '../src/data.js';
+import { filterData, sortData, searchPokemonByName } from '../src/data.js';
 
 describe('sortData', () => {
   it('Es una función', () => {
@@ -30,3 +30,9 @@ describe('filterData', () => {
     expect(filterData(arrayWithoutFilter, 'water')).toEqual(arrayWithFilter);
   });
 });
+
+it('should throw TypeError when invoked with wrong argument types', () => {
+  expect(() => searchPokemonByName()).toThrow(TypeError);
+  expect(() => searchPokemonByName(null, {})).toThrow(TypeError);
+  expect(() => searchPokemonByName(0, 0)).toThrow(TypeError);
+})

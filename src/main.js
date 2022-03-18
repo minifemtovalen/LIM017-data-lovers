@@ -1,6 +1,6 @@
 import { sortData, filterData, searchPokemonByName } from './data.js';
 import pokemonData from './data/pokemon/pokemon.js';
-
+//modal
 const originalData = pokemonData.pokemon;
 let dataState = [...originalData];
 const showData = document.querySelector('#show-data')
@@ -73,7 +73,6 @@ const toggleMenu = () => {
 
 hamburgerBtn.addEventListener('click', toggleMenu);
 
-
 /**
  * const searchInput = document.querySelector('#search')
 const searchPokeByName = () => {
@@ -98,3 +97,4 @@ searchInput.addEventListener('keyup', searchPokeByName);
 
 //funcion para buscar pokemons
 
+//modal

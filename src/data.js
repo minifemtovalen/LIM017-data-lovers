@@ -1,4 +1,3 @@
-// Ordenando data alfabéticamente.
 export const sortData = (pokemons, order = 1) => {
   const avoidObjMutation = new Array(...pokemons);
   const orderedData = avoidObjMutation.sort((a, b) => {
@@ -28,12 +27,19 @@ export const filterData = (pokemons, type) => {
 
 export const searchPokemonByName = (pokemons, name) => {
   return pokemons.filter((pokemon) => {
-    const pokemonName = pokemon.name.toLowerCase();
-    if(pokemonName.indexOf(name) !== -1) {
+    const pokemonName = pokemon.name.toUpperCase();
+    if(pokemonName.indexOf(name.toUpperCase()) !== -1) {
       return pokemon;
     }
   })
-}
+};
+
+/**
+ *
+ *if (!name) throw new TypeError('You have not entered any value');
+  if (typeof name !== "string") throw new TypeError('The entered value is not text');
+  if (typeof pokemons !== "object") throw new TypeError('The value entered is not a valid data');
+ */
 
 export const genFilter = (pokemons, gen) => {
   const avoidObjMutation = new Array(...pokemons);
