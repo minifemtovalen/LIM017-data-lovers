@@ -60,14 +60,17 @@
               <option id="asc" value="1">A-Z</option>
               <option id="desc" value="-1">Z-A</option>
             </select>
-            <select id="order-statistisc">
-              <option id="attack" value="all">Attack</option>
-              <option id="defense" value="1">Defense</option>
-              <option id="stamina" value="-1">Stamina</option>
-              <option id="max_cp" value="-1">Max-Cp</option>
-              <option id="max_hp" value="-1">Max-Hp</option>
+            <select id="stats_select" class="stats_select">
+              <option id="all_stats" value="all">--</option>
+              <option id="attack" value="attack">Attack</option>
+              <option id="defense" value="defense">Defense</option>
+              <option id="stamina" value="stamina">Stamina</option>
+              <option id="max_cp" value="max-cp">Max-Cp</option>
+              <option id="max_hp" value="max-hp">Max-Hp</option>
             </select>
-            <table id="statisticsTable"></table>
+            <div id="table_topTen" class="table_TopTen">
+              <table id="table_stats"></table>
+            </div>
           </div>
         </div>
       </div>
@@ -76,11 +79,11 @@
       <div id="show-data"></div>
     </section>
     <section>
-      <div class="modal_container">
-        <div class="modal_content modal_close">
+      <div class="modal_container" id="modal_container">
+        <div class="modal_content">
           <p class="close">X</p>
           <h2 class="name"></h2>
-          <img class="img" />
+          <img class="img"/>
           <span class="num"></span>
           <span class="type"></span>
           <span class="height"></span>

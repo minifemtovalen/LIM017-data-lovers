@@ -332,10 +332,6 @@ footer {
   border-radius: 10px;
 }
 
-.modal_close{
-  transform: translateY(0%);
-}
-
 .close{
   position: absolute;
   top: 5px;

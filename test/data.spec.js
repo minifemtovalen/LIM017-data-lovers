@@ -1,7 +1,4 @@
-import { sortData, filterData, searchPokemonByName} from './data.js';
-import pokemonData from './data/pokemon/pokemon.js';
-
-const originalData = pokemonData.pokemon;
+import { sortData, filterData, searchPokemonByName } from '../src/data.js';
 
 describe('sortData', () => {
   it('Es una función', () => {
@@ -36,7 +33,7 @@ describe('filterData', () => {
 });
 
 describe('searchPokemonByName', () => {
-  it('should be an function', () => {
+  it('Is a function', () => {
     expect(typeof searchPokemonByName).toBe('function');
   });
 
@@ -46,7 +43,9 @@ describe('searchPokemonByName', () => {
     expect(() => searchPokemonByName(null)).toThrow(TypeError);
   });
 
-  it('should return an "squirtle" for "SQUIRTLE"', () => {
-    expect(searchPokemonByName(originalData, "SQUIRTLE")[0].name).toBe("squirtle")
+  it('should return an "squirtle" for "SQUIRTLE', () => {
+    const searchedField = [{ name: 'squirtle' }];
+    const foundField = [{ name: 'SQUIRTLE' }];
+    expect(searchPokemonByName(searchedField)).toBe(foundField);
   });
 });

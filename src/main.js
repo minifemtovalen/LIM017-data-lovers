@@ -1,13 +1,10 @@
-import { sortData, filterData, searchPokemonByName, /*generationFilter*/ computeStats} from './data.js';
+import { sortData, filterData, searchPokemonByName, /*generationFilter*/ computeStats } from './data.js';
 import pokemonData from './data/pokemon/pokemon.js';
 
 const originalData = pokemonData.pokemon;
 const modalContainer = document.querySelectorAll('.modal_container')[0];
-const modalContent = document.querySelectorAll(".modal_content")[0];
 const close = document.querySelectorAll(".close")[0];
 let dataState = [...originalData];
-
-console.log(computeStats(originalData))
 
 //Mostrando Pokemons en Pantalla Principal
 
@@ -72,34 +69,33 @@ searchInput.addEventListener('keyup', searchResult);
 
 //Mostran Info Modal
 
-document.querySelectorAll('.pokemon-box').forEach((pokemon) => {
-  pokemon.addEventListener('click', () => {
+    document.querySelectorAll('.pokemon-box').forEach((pokemon) => {
+    pokemon.addEventListener('click', () => {
     modalContainer.style.opacity = '1';
     modalContainer.style.visibility = 'visible';
-    modalContent.classList.toggle('modal_close');
-    const name = document.querySelector(".name");
-    const img = document.querySelector(".img");
-    const num = document.querySelector(".num");
-    const type = document.querySelector(".type");
-    const height = document.querySelector(".height");
-    const weight = document.querySelector(".weight")
-    const candy = document.querySelector(".candy")
-    const nextEvolution = document.querySelector(".next_evolution")
-
-    name.innerHTML = pokemon.name 
-    img.setAttribute("src", pokemon.img)   
+    const name = document.querySelectorAll(".name")[0];
+    const img = document.querySelectorAll(".img")[0];
+    const num = document.querySelectorAll(".num")[0];
+    //const type = document.querySelectorAll(".type")[0];
+    const height = document.querySelectorAll(".height")[0];
+    const weight = document.querySelectorAll(".weight")[0]
+    const candy = document.querySelectorAll(".candy")[0]
+    const nextEvolution = document.querySelectorAll(".next_evolution")[0]
+  
+    name.innerHTML = pokemon.name
+    img.setAttribute("src", pokemon.img)
     num.innerHTML = pokemon.num
-    type.innerHTML = `TIPO: ${pokemon.type.join(", ")}`
+    //type.innerHTML = `TIPO: ${pokemon.type.join(", ")}`,
     height.innerHTML = `HEIGHT: ${pokemon.height}`
     weight.innerHTML = `WEIGHT: ${pokemon.weight}`
     candy.innerHTML = `Candy: ${pokemon.candy}`
     nextEvolution.innerHTML = `NEXT EVOLUTION: ${pokemon['next-evolution'] ? pokemon['next-evolution'].map(evolution => evolution.name).join(", ") : "This is the last evolution"}`
   })
+  
 });
 
 close.addEventListener('click', () => {
-  modalContent.classList.toggle('modal_close');
-  setTimeout(() => {
+    setTimeout(() => {
     modalContainer.style.opacity = '0';
     modalContainer.style.visibility = 'hidden';
   }, 500)
@@ -107,10 +103,54 @@ close.addEventListener('click', () => {
 
 window.addEventListener('click', (e) => {
   if (e.target == modalContainer) {
-    modalContent.classList.toggle('modal_close');
-    setTimeout(() => {
+      setTimeout(() => {
       modalContainer.style.opacity = '0';
       modalContainer.style.visibility = 'hidden';
     }, 300)
   }
+});
+
+//Mostrando estadísticas
+
+const statsTable = (pokemon, statsSelect) => {
+  
+  let stats;
+  if (statsSelect === 'attack') {
+    stats = 'Attack';
+  } else if (statsSelect === 'defense') {
+    stats = 'Defense';
+  } else if (statsSelect === 'stamina') {
+    stats = 'Stamina'
+  } else if (statsSelect === 'max-cp') {
+    stats = 'Max-Cp'
+  } else if (statsSelect === 'max-hp') {
+    stats = 'Max-Hp';
+  } else {
+    displayPokemon(originalData)
+    dataState = originalData;
+  }
+
+  let frameTable = '';
+  frameTable += `<tr><th>NAME</th>
+  <th>POKEMON</th>
+  <th>TYPE</th>
+  <th>TOP TEN ${stats}</th></tr>`;
+  for (let i = 0; i < pokemon.length; i ++) {
+    frameTable += `
+        <tr>
+          <td>${pokemon.name}</td>
+          <td><img class='image_table_pokemon' src=${pokemon.img}</td>
+          <td>${pokemon.type}</td>
+          <td>${pokemon.statsTable}</td>`;
+  }
+  document.getElementById('table_stats').innerHTML = frameTable;
+};
+
+// Desplegable de stats
+
+const getTopTen = document.querySelector('#stats_select');
+getTopTen.addEventListener('change', () => {
+  const topTenSelect = getTopTen.value;
+  document.getElementById('table_stats').innerHTML = '';
+  statsTable(computeStats(originalData, topTenSelect), topTenSelect);
 });
