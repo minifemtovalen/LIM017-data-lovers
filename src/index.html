@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#5EBDFC" />
   <title>Pokémon GO! DB</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/x-icon" href="/im/favicon.ico">
+  <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -16,9 +16,22 @@
 <body>
   <main style="display:grid; padding-top: 72px;">
     <header class="app-bar">
+      <button id="burger-btn">&#9776;</button>
       <h1>Pokédex</h1>
       <div id="front-logo"><img src="./img/front-logo.png" alt="Pokemon GO database, Pokemon stats and wiki"></div>
     </header>
+    <nav class="top-nav hidden-nav" id="top-navbar">
+      <a href="javascript:location.reload()">Home</a>
+      <div class="dropdown">
+        <button id="drop-btn" type="button"><span>Generations </span><img src="./img/angle-down-solid (1).svg"></button>
+        <div class="dropdown-content">
+          <a id="kanto" href="#generationi">Kanto</a>
+          <a id="johto" href="#generationii">Johto</a>
+        </div>
+      </div>
+      <a id="ranking" href="#ranking">Ranking</a>
+      <a href="compare pokemons">Compare Pokemons</a>
+    </nav>
     <div class="card">
       <h2>Pokémon GO Database</h2>
     </div>
@@ -30,46 +43,35 @@
             <label for="search">Name:</label>
             <input id="search" type="text" name="search" placeholder="search by name e.g. pichu">
           </div>
-        </div>
-        <div id="type-input">
-          <label for="select-type">Type:</label>
-          <select id="select-type">
-            <option id="all" value="all">-All-</option>
-            <option id="bug" value="bug">Bug</option>
-            <option id="dark" value="dark">Dark</option>
-            <option id="dragon" value="dragon">Dragon</option>
-            <option id="electric" value="electric">Electric</option>
-            <option id="fairy" value="fairy">Fairy</option>
-            <option id="fighting" value="fighting">Fighting</option>
-            <option id="flying" value="flying">Flying</option>
-            <option id="fire" value="fire">Fire</option>
-            <option id="ghost" value="ghost">Ghost</option>
-            <option id="grass" value="grass">Grass</option>
-            <option id="ground" value="ground">Ground</option>
-            <option id="ice" value="ice">Ice</option>
-            <option id="normal" value="normal">Normal</option>
-            <option id="poison" value="poison">Poison</option>
-            <option id="psychic" value="psychic">Psychic</option>
-            <option id="rock" value="rock">Rock</option>
-            <option id="steel" value="steel">Steel</option>
-            <option id="water" value="water">Water</option>
-          </select>
-          <div id="sort-by">
-            <select id="order-select">
-              <option id="original" value="all">--</option>
-              <option id="asc" value="1">A-Z</option>
-              <option id="desc" value="-1">Z-A</option>
+          <div id="type-input">
+            <label for="select-type">Type:</label>
+            <select id="select-type">
+              <option id="all" value="all">-All-</option>
+              <option id="bug" value="bug">Bug</option>
+              <option id="dark" value="dark">Dark</option>
+              <option id="dragon" value="dragon">Dragon</option>
+              <option id="electric" value="electric">Electric</option>
+              <option id="fairy" value="fairy">Fairy</option>
+              <option id="fighting" value="fighting">Fighting</option>
+              <option id="flying" value="flying">Flying</option>
+              <option id="fire" value="fire">Fire</option>
+              <option id="ghost" value="ghost">Ghost</option>
+              <option id="grass" value="grass">Grass</option>
+              <option id="ground" value="ground">Ground</option>
+              <option id="ice" value="ice">Ice</option>
+              <option id="normal" value="normal">Normal</option>
+              <option id="poison" value="poison">Poison</option>
+              <option id="psychic" value="psychic">Psychic</option>
+              <option id="rock" value="rock">Rock</option>
+              <option id="steel" value="steel">Steel</option>
+              <option id="water" value="water">Water</option>
             </select>
-            <select id="stats_select" class="stats_select">
-              <option id="all_stats" value="all">--</option>
-              <option id="attack" value="attack">Attack</option>
-              <option id="defense" value="defense">Defense</option>
-              <option id="stamina" value="stamina">Stamina</option>
-              <option id="max_cp" value="max-cp">Max-Cp</option>
-              <option id="max_hp" value="max-hp">Max-Hp</option>
-            </select>
-            <div id="table_topTen" class="table_TopTen">
-              <table id="table_stats"></table>
+            <div id="sort-by">
+              <select id="order-select">
+                <option id="original" value="all">--</option>
+                <option id="asc" value="1">A-Z</option>
+                <option id="desc" value="-1">Z-A</option>
+              </select>
             </div>
           </div>
         </div>
@@ -78,18 +80,27 @@
     <section id="show-pokemon">
       <div id="show-data"></div>
     </section>
+    <section id="power-data" class="hide">
+      <h2>Ranking</h2>
+      <p>Discover which are the pokemons with the best statistics and plan your battles!</p>
+      <div id="options">
+        <select id="sort-power" class="get-btn">
+          <option value="attack">Attack</option>
+          <option value="defense">Defense</option>
+          <option value="health">Health</option>
+          <option value="max-cp">Max. CP</option>
+          <option value="max-hp">Max. HP</option>
+        </select>
+      </div>
+      <div class="items">
+        <table id="ranking-table"></table>
+      </div>
+    </section>
     <section>
-      <div class="modal_container" id="modal_container">
-        <div class="modal_content">
+      <div class="modal_container">
+        <div class="modal_content modal_close">
           <p class="close">X</p>
-          <h2 class="name"></h2>
-          <img class="img"/>
-          <span class="num"></span>
-          <span class="type"></span>
-          <span class="height"></span>
-          <span class="weight"></span>
-          <span class="candy"></span>
-          <span class="next_evolution"></span>
+  
         </div>
       </div>
     </section>

@@ -1,7 +1,7 @@
 * {
   font-family: 'Lato', sans-serif;
   padding: 0;
-  margin: 0;
+  margin: 0px;
   box-sizing: border-box;
 }
 
@@ -16,6 +16,8 @@ header {
   display: grid;
   align-items: center;
   justify-items: center;
+  grid-template-columns: auto 1fr;
+  padding-right: 4em;
 }
 
 h1 {
@@ -28,9 +30,104 @@ h1 {
   color: #FFFFFF;
 }
 
+/*.top-nav {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 3em;
+  bottom: 6px;
+  background: rgb(94 189 252 / 60%);
+}*/
+
+.top-nav {
+  background-color: rgb(94 189 252 / 100%);
+  overflow: hidden;
+  position: fixed;
+  z-index: 100;
+  top: 4.1em;
+  right: 0;
+  left: 0;
+}
+
+.hidden-nav {
+  display:none;
+}
+
+.top-nav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  font-weight: bold;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  width: 100%;
+}
+
+.dropdown {
+  overflow: hidden;
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  font-weight: bold;
+  text-align: center;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  width: 100%;
+}
+
+.dropdown:hover {
+  background-color: #47d4ff;;
+  color: #ffffff;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+#drop-btn {
+  font-size: inherit;
+  font-weight: inherit;
+  border: none;
+  outline: none;
+  background: inherit;
+  color: inherit;
+  padding: inherit;
+  display: flex;
+  margin: auto;
+  gap: 6px;
+}
+
+#drop-btn > img {
+  width: 15px;
+  align-self: center;
+  justify-self: center;
+}
+
+.dropdown-content {
+  display: none;
+}
+
+.top-nav a:hover {
+  background-color: #47d4ff;;
+  color: #ffffff;
+}
+
 div#front-logo {
   position: absolute;
   right: 1em;
+}
+
+button#burger-btn {
+  background: transparent;
+  color: #ffffff;
+  border: none;
+  margin: 2px 0.2em;
+  font-weight: bold;
+  font-size: 2.3em;
+  cursor: pointer;
 }
 
 #front-logo > img {
@@ -80,7 +177,7 @@ div#search-bar {
   padding-right: 1em;
 }
 
-div#name-input {
+  div#name-input {
     display: grid;
     grid-template-columns: 52px 1fr;
     align-items: center;
@@ -95,6 +192,34 @@ div#name-input > input#search {
   border: 1px solid #C4C4C4;
   border-radius: 6px;
   padding: 3px;
+}
+
+.search-alert {
+  border: 2px solid #E3350D;
+  padding: 2em 3em;
+  border-radius: 20px;
+  margin: 2em 2em;
+}
+
+h3 {
+  color: #E3350D;
+  margin: 0.5em 1em;
+}
+
+.search-alert p {
+  padding-bottom: 0.5em;
+  color: #919191;
+  font-weight: 600;
+  margin: 0.5em 0;
+}
+
+.search-alert ul, .search-alert li {
+  margin: 0.5em;
+  color: #919191;
+}
+
+.hide {
+  display: none;
 }
 
 div#type-input {
@@ -124,6 +249,7 @@ select#select-type > option {
 option#all {
   background: #0075BE;
 }
+
 div#sort-by {
   display: grid;
 }
@@ -167,22 +293,24 @@ div#show-data {
   justify-content: space-evenly;
   align-items: center;
   justify-items: center;
-  margin-top: 1em;
+  margin-top: 2em;
+  margin-bottom: 4em;
   padding-top: 2em;
   gap: 4em;
 }
 
 .pokemon-box {
+  border: 2px dashed #09c077;;
   background: #EFFCD5;
   border-radius: 8px;
   position: relative;
   width: 230px;
   cursor: pointer;
-  transition: all ease-in .3s;
+  transition: all ease-in .1s;
 }
 
 .pokemon-box:hover {
-  transform:scale(1.3);
+  transform:scale(1.1);
 }
 
 .pokemon-img {
@@ -208,7 +336,7 @@ div#show-data {
   position: absolute;
   top: 11px;
   right: 11px;
-  padding: 5px 3px;
+  padding: 5px 5px;
   color: #37796C;
   font-weight: bold;
   border-radius: 8px;
@@ -303,6 +431,13 @@ div#show-data {
 footer {
   text-align: center;
 }
+
+/*queries
+@media screen and (max-width: 600px) {
+  .top-nav, .dropdown .drop-btn {
+    display: none;
+  }
+*/
 
 .modal_container {
   opacity: 0;
