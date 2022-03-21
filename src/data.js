@@ -1,6 +1,6 @@
 export const sortData = (pokemons, order = 1) => {
-  const avoidObjMutation = new Array(...pokemons);
-  const orderedData = avoidObjMutation.sort((a, b) => {
+  const cloneOriginalData = new Array(...pokemons);
+  const orderedData = cloneOriginalData.sort((a, b) => {
     if (a.name < b.name) {
       return -1 * order;
     }
@@ -13,8 +13,7 @@ export const sortData = (pokemons, order = 1) => {
 };
 
 export const filterData = (pokemons, type) => {
-  const avoidObjMutation = new Array(...pokemons);
-  const filteredData = avoidObjMutation.filter((pokemon) => {
+  const filteredData = pokemons.filter((pokemon) => {
     if(pokemon.type.includes(type)){
       return true;
     }
@@ -42,23 +41,24 @@ export const searchPokemonByName = (pokemons, name) => {
  */
 
 export const genFilter = (pokemons, gen) => {
-  const avoidObjMutation = new Array(...pokemons);
-  const genFiltered = avoidObjMutation.filter((pokemon) => pokemon.generation.name.includes(gen));
+  const genFiltered = pokemons.filter((pokemon) => pokemon.generation.name.includes(gen));
   return genFiltered;
 };
 
 export const sortPower = (pokemons,stats) => {
+  const clonedData = new Array(...pokemons);
   let arrPowers = [];
   if (stats === 'attack') {
-    arrPowers = pokemons.sort((a, b) => b.stats['base-attack'] - a.stats['base-attack']);
+    arrPowers = clonedData.sort((a, b) => b.stats['base-attack'] - a.stats['base-attack']);
+    console.log(arrPowers);
   } else if (stats === 'defense') {
-      arrPowers = pokemons.sort((a, b) => b.stats['base-defense'] - a.stats['base-defense']);
+    arrPowers = clonedData.sort((a, b) => b.stats['base-defense'] - a.stats['base-defense']);
   } else if (stats === 'health') {
-      arrPowers = pokemons.sort((a, b) => b.stats['base-stamina'] - a.stats['base-stamina']);
+    arrPowers = clonedData.sort((a, b) => b.stats['base-stamina'] - a.stats['base-stamina']);
   } else if (stats === 'max-cp') {
-      arrPowers = pokemons.sort((a, b) => b.stats['max-cp'] - a.stats['max-cp']);
+    arrPowers = clonedData.sort((a, b) => b.stats['max-cp'] - a.stats['max-cp']);
   } else {
-    arrPowers = pokemons.sort((a, b) => b.stats['max-hp'] - a.stats['max-hp']);
+    arrPowers = clonedData.sort((a, b) => b.stats['max-hp'] - a.stats['max-hp']);
   }
   return arrPowers;
 };

@@ -80,6 +80,7 @@ kantoRegion.addEventListener('click', () => {
   displayPokemon(filterByRegion)
   dataState = filterByRegion;
   navBar.classList.toggle('hidden-nav');
+  hideElements('view');
 })
 
 const johtoRegion = document.querySelector('#johto');
@@ -89,28 +90,28 @@ johtoRegion.addEventListener('click', () => {
   displayPokemon(filterByRegion)
   dataState = filterByRegion;
   navBar.classList.toggle('hidden-nav');
+  hideElements('view');
 })
 
 const dataRanking = (pokemons, stats) => {
   let power;
   if (stats === 'attack') {
-      power = 'Attack';
+    power = 'Attack';
   } else if (stats === 'defense') {
-      power = 'Defense';
+    power = 'Defense';
   } else if (stats === 'health') {
-      power = 'Health';
+    power = 'Health';
   } else if (stats === 'max-cp') {
-      power = 'Max. CP';
+    power = 'Max. CP';
   } else {
-      power = 'Max. HP';
+    power = 'Max. HP';
   }
-  let powerList = '';
-  powerList += `
-        <tr>
-          <th>N° Pokedex</th>
-          <th>Nombre</th>
-          <th>${power}</th>
-        </tr>`;
+  let powerList = `
+      <tr>
+        <th>Pokedex N°</th>
+        <th>Name</th>
+        <th>${power}</th>
+      </tr>`;
   for (let i = 0; i < 10; i += 1) {
     powerList += `
     <tr>
@@ -139,14 +140,26 @@ const dataRanking = (pokemons, stats) => {
   document.querySelector('#ranking-table').innerHTML = powerList;
 };
 
+function hideElements (view) {
+  if (view === 'ranking') {
+    document.querySelector('#power-data').classList.remove('hide');
+    document.querySelector('.card').classList.add('hide');
+    document.querySelector('#main-view').classList.add('hide');
+    document.querySelector('#show-pokemon').classList.add('hide');
+  } else {
+    document.querySelector('#power-data').classList.add('hide');
+    document.querySelector('.card').classList.remove('hide');
+    document.querySelector('#main-view').classList.remove('hide');
+    document.querySelector('#show-pokemon').classList.remove('hide');
+  }
+}
+
 const selectRanking = document.querySelector('#ranking');
 selectRanking.addEventListener('click', () => {
-  document.querySelector('.card').classList.add('hide');
-  document.querySelector('#main-view').classList.add('hide');
-  document.querySelector('#show-pokemon').classList.add('hide');
-  document.querySelector('#power-data').classList.toggle('hide');
-  dataRanking(sortPower(originalData, 'attack'), 'attack');
+  const debugging = sortPower(originalData, 'attack');
+  dataRanking(debugging, 'attack');
   navBar.classList.toggle('hidden-nav');
+  hideElements('ranking');
 });
 
 const sortPowerSelect = document.querySelector('#sort-power');
