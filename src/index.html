@@ -23,11 +23,11 @@
         <div class="dropdown">
           <button id="drop-btn" type="button"><span>Generations </span><img src="./img/angle-down-solid (1).svg"></button>
           <div class="dropdown-content">
-            <a href="#generationi">Kanto</a>
-            <a href="#generationii">Johto</a>
+            <a id="kanto" href="#generationi">Kanto</a>
+            <a id="johto" href="#generationii">Johto</a>
           </div>
         </div>
-        <a href="#ranking">Ranking</a>
+        <a id="ranking" href="#ranking">Ranking</a>
         <a href="compare pokemons">Compare Pokemons</a>
       </nav>
       <div class="card">
@@ -78,7 +78,22 @@
       <section id="show-pokemon">
         <div id="show-data"></div>
       </section>
-      <!-- modal -->
+      <section id="power-data" class="hide">
+        <h2>Ranking</h2>
+        <p>Discover which are the pokemons with the best statistics and plan your battles!</p>
+        <div id="options">
+          <select id="sort-power" class="get-btn">
+            <option value="attack">Attack</option>
+              <option value="defense">Defense</option>
+              <option value="health">Health</option>
+              <option value="max-cp">Max. CP</option>
+              <option value="max-hp">Max. HP</option>
+          </select>
+        </div>
+        <div class="items">
+          <table id="ranking-table"></table>
+        </div>
+        </section>
     </main>
     <footer class="footer"></footer>
     <div id="root"></div>

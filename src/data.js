@@ -47,4 +47,18 @@ export const genFilter = (pokemons, gen) => {
   return genFiltered;
 };
 
-
+export const sortPower = (pokemons,stats) => {
+  let arrPowers = [];
+  if (stats === 'attack') {
+    arrPowers = pokemons.sort((a, b) => b.stats['base-attack'] - a.stats['base-attack']);
+  } else if (stats === 'defense') {
+      arrPowers = pokemons.sort((a, b) => b.stats['base-defense'] - a.stats['base-defense']);
+  } else if (stats === 'health') {
+      arrPowers = pokemons.sort((a, b) => b.stats['base-stamina'] - a.stats['base-stamina']);
+  } else if (stats === 'max-cp') {
+      arrPowers = pokemons.sort((a, b) => b.stats['max-cp'] - a.stats['max-cp']);
+  } else {
+    arrPowers = pokemons.sort((a, b) => b.stats['max-hp'] - a.stats['max-hp']);
+  }
+  return arrPowers;
+};

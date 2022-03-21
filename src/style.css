@@ -218,6 +218,10 @@ h3 {
   color: #919191;
 }
 
+.hide {
+  display: none;
+}
+
 div#type-input {
   display: grid;
   grid-template-columns: 52px 1fr 1fr;
