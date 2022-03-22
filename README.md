@@ -61,7 +61,7 @@ El usuario podrá acceder a un menú despleglable haciendo click en el TopTen pa
 ### 4. Diseño interfaz de Usuario - Prototipo de alta fidelidad
 > Se trabajó con un editor de gráficos vectorial y una herramienta de generación de prototipos ([Figma](http://www.figma.com/?fuid= "Figma")) para tener un diseño más profesional y reflejar lo que el usuario desea. 
 
-![Prototipos de Alta Fidelidad](src/pafpage01.png)
+![Prototipos de Alta Fidelidad](images/pafpage01.png)
 
 ![](images/pafmodal.png)
 
