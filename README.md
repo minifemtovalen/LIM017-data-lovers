@@ -1,4 +1,5 @@
 ### 1. Introducción
+![pokemongo](https://user-images.githubusercontent.com/98605059/159592379-e57e901d-d2d6-4af1-a69f-857e39888f37.jpg)
 
 **Pokémon GO** es un videojuego de realidad aumentada basado en la localización desarrollado por **Niantic** para dispositivos iOS y Android. Es un videojuego gratuito pero contiene microtransacciones. El juego consiste en buscar y capturar personajes de la **saga Pokémon** escondidos en ubicaciones del mundo real y luchar con ellos, lo que implica desplazarse físicamente por las calles de la ciudad para progresar. La aplicación comporta un elemento de interacción social, ya que promueve reuniones físicas de los usuarios en distintas ubicaciones de sus poblaciones, bosques entre otros.
 
