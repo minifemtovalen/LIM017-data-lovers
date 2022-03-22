@@ -1,5 +1,5 @@
 ### 1. Introducción
-![](images/pokemongo.jpg)
+![](Images/pokemongo.jpg)
 **Pokémon GO** es un videojuego de realidad aumentada basado en la localización desarrollado por **Niantic** para dispositivos iOS y Android. Es un videojuego gratuito pero contiene microtransacciones. El juego consiste en buscar y capturar personajes de la **saga Pokémon** escondidos en ubicaciones del mundo real y luchar con ellos, lo que implica desplazarse físicamente por las calles de la ciudad para progresar. La aplicación comporta un elemento de interacción social, ya que promueve reuniones físicas de los usuarios en distintas ubicaciones de sus poblaciones, bosques entre otros.
 
 En esta página web los usuarios del juego podrán encontrar información necesaria y valiosa para obtener un mayor **nivel de juego**. Al ser un juego muy competitivo y siempre tener que estar a la vanguardia para los posibles enfrentamientos entre Pokemons, es esencial visitar esta página web para encontrar las fortalezas que necesitas en la búsqueda de convertirte en un **maestro Pokemon.**
@@ -51,27 +51,27 @@ El usuario podrá acceder a un menú despleglable haciendo click en el TopTen pa
 
 > Se trabajó en una idea planteada a lápiz y papel para entender con facilidad lo que el usuario desea.
 
-![Prototipos de Baja Fidelidad](images/pbf01.jpg)
+![Prototipos de Baja Fidelidad](Images/pbf01.jpg)
 
-![](images/pbf02.jpg)
+![](Images/pbf02.jpg)
 
-![](images/pfb03.jpg)
+![](Images/pfb03.jpg)
 
 
 ### 4. Diseño interfaz de Usuario - Prototipo de alta fidelidad
 > Se trabajó con un editor de gráficos vectorial y una herramienta de generación de prototipos ([Figma](http://www.figma.com/?fuid= "Figma")) para tener un diseño más profesional y reflejar lo que el usuario desea. 
 
-![Prototipos de Alta Fidelidad](images/pafpage01.png)
+![Prototipos de Alta Fidelidad](Images/pafpage01.png)
 
-![](images/pafmodal.png)
+![](Images/pafmodal.png)
 
-![](images/pafdesplegable01.png)
+![](Images/pafdesplegable01.png)
 
-![](images/pafdesplegable02.png)
+![](Images/pafdesplegable02.png)
 
-![](images/pafpage02.png)
+![](Images/pafpage02.png)
 
-![](images/pafpage03.png)
+![](Images/pafpage03.png)
 
 [Reference link Figma][id/name] 
 
