@@ -34,13 +34,13 @@ El usuario podrá escribir el nombre del Pokémon a través de un buscador para 
 
 > Desarrollo
 
-El usuario podrá hacer click en cada tarjeta del pokemon buscado y encontrar información más detallada como: Nombre, número, imagen, tipo, peso, altura, caramelos y su siguiente evolución(si la tuviera).
+El usuario podrá hacer click en cada tarjeta del pokemon buscado y encontrar información más detallada como: Nombre, número, imagen, tipo, peso, altura, caramelos y su siguiente evolución(si la tuviera), además de un menú desplegable que le brindará otras opciones.
 
 
 ##### Historia de Usuario 04
 
 **Como** usuario
-**Quiero** encontrar el página estadísticas sobre los Pokemons 
+**Quiero** encontrar en la página estadísticas sobre los Pokemons 
 **Para** conocer el nivel de cada uno de ellos.
 
 > Desarrollo
@@ -61,7 +61,7 @@ El usuario podrá acceder a un menú despleglable haciendo click en el TopTen pa
 ### 4. Diseño interfaz de Usuario - Prototipo de alta fidelidad
 > Se trabajó con un editor de gráficos vectorial y una herramienta de generación de prototipos ([Figma](http://www.figma.com/?fuid= "Figma")) para tener un diseño más profesional y reflejar lo que el usuario desea. 
 
-![Prototipos de Alta Fidelidad](images/pafpage01.png)
+![Prototipos de Alta Fidelidad](src/pafpage01.png)
 
 ![](images/pafmodal.png)
 
