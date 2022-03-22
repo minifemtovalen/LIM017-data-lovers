@@ -57,7 +57,7 @@ El usuario podrá acceder a un menú despleglable haciendo click en el TopTen pa
 
 ![](Images/pbf02.jpg)
 
-![](Images/pfb03.jpg)
+![](Images/pbf03.jpg)
 
 
 ### 4. Diseño interfaz de Usuario - Prototipo de alta fidelidad
@@ -86,19 +86,19 @@ El usuario podrá acceder a un menú despleglable haciendo click en el TopTen pa
 ```html
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charest="utf-8" />
-        <title>Hello world!</title>
-    </head>
-    <body>
-		<main>
-			<header>
-				<h1>Hello world!</h1>
-			</header>	
-		</main>
-		<footer></footer>
-		<script></script>
-    </body>
+  <head>
+    <meta charset="utf-8" />
+      <title>Hello world!</title>
+  </head>
+  <body>
+	<main>
+	  <header>
+	    <h1>Hello world!</h1>
+		</header>	
+	</main>
+	<footer></footer>
+	<script></script>
+  </body>
 </html>
 ```
 #### Selectores, modelo de caja y flexbox en CCS
