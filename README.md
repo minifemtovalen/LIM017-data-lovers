@@ -1,8 +1,7 @@
 ### 1. Introducción
-<<<<<<< HEAD
+
 ![](Images/pokemongo.jpg)
-=======
->>>>>>> 7f40cda3a5af532caba0a33a7ef4a6a6915f2d99
+
 **Pokémon GO** es un videojuego de realidad aumentada basado en la localización desarrollado por **Niantic** para dispositivos iOS y Android. Es un videojuego gratuito pero contiene microtransacciones. El juego consiste en buscar y capturar personajes de la **saga Pokémon** escondidos en ubicaciones del mundo real y luchar con ellos, lo que implica desplazarse físicamente por las calles de la ciudad para progresar. La aplicación comporta un elemento de interacción social, ya que promueve reuniones físicas de los usuarios en distintas ubicaciones de sus poblaciones, bosques entre otros.
 
 En esta página web los usuarios del juego podrán encontrar información necesaria y valiosa para obtener un mayor **nivel de juego**. Al ser un juego muy competitivo y siempre tener que estar a la vanguardia para los posibles enfrentamientos entre Pokemons, es esencial visitar esta página web para encontrar las fortalezas que necesitas en la búsqueda de convertirte en un **maestro Pokemon.**
