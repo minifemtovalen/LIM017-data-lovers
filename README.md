@@ -1,12 +1,3 @@
-**Tabla de Contenido**
-
-* [1. Introducción](#2-Introducción)
-* [2. Historias de Usuario](#2-Historias de Usuario)
-* [3. Prototipo de baja fidelidad](#3-Sketch)
-* [4. Prototipo de alta fidelidad](#4-Diseño interfaz de usuario)
-* [5. Objetivos de aprendizaje](#5-Objetivos de aprendizaje)
-
-
 ### 1. Introducción
 
 **Pokémon GO** es un videojuego de realidad aumentada basado en la localización desarrollado por **Niantic** para dispositivos iOS y Android. Es un videojuego gratuito pero contiene microtransacciones. El juego consiste en buscar y capturar personajes de la **saga Pokémon** escondidos en ubicaciones del mundo real y luchar con ellos, lo que implica desplazarse físicamente por las calles de la ciudad para progresar. La aplicación comporta un elemento de interacción social, ya que promueve reuniones físicas de los usuarios en distintas ubicaciones de sus poblaciones, bosques entre otros.
@@ -15,7 +6,7 @@ En esta página web los usuarios del juego podrán encontrar información necesa
 
 ### 2. Historias de Usuario
 
-###### Historia de Usuario 01
+##### Historia de Usuario 01
 
 **Como** usuario
 **Quiero** entrar a la página 
@@ -25,7 +16,7 @@ En esta página web los usuarios del juego podrán encontrar información necesa
 
 El usuario al entrar a la página web encontrartá todos los Pokemons mediante una visualización amigable que le permitirá hacer uso de las diferentes herramientas de la propia página.
 
-###### Historia de Usuario 02
+##### Historia de Usuario 02
 
 **Como** usuario
 **Quiero** buscar el nombre del pokemon
@@ -35,7 +26,7 @@ El usuario al entrar a la página web encontrartá todos los Pokemons mediante u
 
 El usuario podrá escribir el nombre del Pokémon a través de un buscador para encontrarlo, y obtener de él información básica como: Nombre, número de posición en la pagina web, una imagen del mismo y su tipo; esta información aparecerá mediante tarjetas que facilitan la visualización del Pokemon buscado.
 
-###### Historia de Usuario 03
+##### Historia de Usuario 03
 
 **Como** usuario
 **Quiero** darle click al pokemon buscado
@@ -46,7 +37,7 @@ El usuario podrá escribir el nombre del Pokémon a través de un buscador para 
 El usuario podrá hacer click en cada tarjeta del pokemon buscado y encontrar información más detallada como: Nombre, número, imagen, tipo, peso, altura, caramelos y su siguiente evolución(si la tuviera).
 
 
-###### Historia de Usuario 04
+##### Historia de Usuario 04
 
 **Como** usuario
 **Quiero** encontrar el página estadísticas sobre los Pokemons 
@@ -59,16 +50,36 @@ El usuario podrá acceder a un menú despleglable haciendo click en el TopTen pa
 ### 3. Sketch - Prototipo de baja fidelidad
 
 > Se trabajó en una idea planteada a lápiz y papel para entender con facilidad lo que el usuario desea.
----Aquí van las imágenes del prototipo de baja fidelidad---
+
+![Prototipos de Baja Fidelidad](images/pbf01.jpg)
+
+![](images/pbf02.jpg)
+
+![](images/pfb03.jpg)
+
 
 ### 4. Diseño interfaz de Usuario - Prototipo de alta fidelidad
 > Se trabajó con un editor de gráficos vectorial y una herramienta de generación de prototipos ([Figma](http://www.figma.com/?fuid= "Figma")) para tener un diseño más profesional y reflejar lo que el usuario desea. 
 
----Aquí va el link del prototipo de alta fidelidad en figma---
+![Prototipos de Alta Fidelidad](images/pafpage01.png)
 
-### 5. Objetivos de Aprendizaje 
+![](images/pafmodal.png)
 
-##### Uso de HTML semántico
+![](images/pafdesplegable01.png)
+
+![](images/pafdesplegable02.png)
+
+![](images/pafpage02.png)
+
+![](images/pafpage03.png)
+
+[Reference link Figma][id/name] 
+
+[id/name]: https://www.figma.com/proto/2cVktQV52vReP3YDmuxBbd/Untitled?node-id=1%3A2&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2
+
+### 5. Objetivos de Aprendizaje - Autoras
+
+#### Uso de HTML semántico
 
 ```html
 <!DOCTYPE html>
@@ -87,18 +98,18 @@ El usuario podrá acceder a un menú despleglable haciendo click en el TopTen pa
 		<script></script>
     </body>
 </html>
+```
+#### Selectores, modelo de caja y flexbox en CCS
 
-##### Selectores, modelo de caja y flexbox en CCS
+[CSS Selectors-MDN](https://developer.mozilla.org/es/docs/Web/CSS/CSS_Selectors "CSS Selectors-MDN")
 
-* [CSS Selectors-MDN](https://developer.mozilla.org/es/docs/Web/CSS/CSS_Selectors "CSS Selectors-MDN")
-
-* [Box Model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model "Box Model")
+[Box Model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model "Box Model")
 
 [Flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox "Flexbox")
 
 [Responsive Design](https://developer.mozilla.org/es/docs/Learn/CSS/CSS_layout/Responsive_Design "Responsive Design")
 
-##### Selectores, eventos y manipulación dinámica el DOM
+#### Selectores, eventos y manipulación dinámica el DOM
 
 [Introducción al DOM-MDN](https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction "Introducción al DOM")
 
@@ -112,7 +123,7 @@ El usuario podrá acceder a un menú despleglable haciendo click en el TopTen pa
 
 [Node.appendChild()-MDN](https://developer.mozilla.org/es/docs/Web/API/Node/appendChild "Node.appendChild()-MDN")
 
-##### Javascript
+#### Javascript
 
 [Métodos de Array-MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array "Métodos de Array")
 
@@ -128,12 +139,22 @@ El usuario podrá acceder a un menú despleglable haciendo click en el TopTen pa
 
 [TEST CON JEST](https://lms.laboratoria.la/cohorts/lim-2022-01-bootcamp-js-lim017/topics/javascript/11-testing/00-opening "Test con Jest")
 
-##### Control de versiones(Git y GitHub)
+#### Control de versiones(Git y GitHub)
 
 [Página Oficial GitHub](https://pages.github.com/ "Página Oficial GitHub")
 
+### 6. Test de usabilidad - Problemas detectados
 
-#Data Lovers
+
+
+
+
+
+
+
+
+
+<!---#Data Lovers
 
 ## Índice
 
@@ -750,4 +771,4 @@ Cuando ya estés lista para codear, te sugerimos empezar de esta manera:
 * [ ] UI: Muestra lista y/o tabla con datos y/o indicadores.
 * [ ] UI: Permite ordenar data por uno o más campos (asc y desc).
 * [ ] UI: Permite filtrar data en base a una condición.
-* [ ] UI: Es _responsive_.
+* [ ] UI: Es _responsive_.-->
