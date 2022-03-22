@@ -1,4 +1,172 @@
-# Data Lovers
+**Tabla de Contenido**
+
+[TOCM]
+
+[TOC]
+
+### Introducción
+
+**Pokémon GO** es un videojuego de realidad aumentada basado en la localización desarrollado por **Niantic** para dispositivos iOS y Android. Es un videojuego gratuito pero contiene microtransacciones. El juego consiste en buscar y capturar personajes de la **saga Pokémon** escondidos en ubicaciones del mundo real y luchar con ellos, lo que implica desplazarse físicamente por las calles de la ciudad para progresar. La aplicación comporta un elemento de interacción social, ya que promueve reuniones físicas de los usuarios en distintas ubicaciones de sus poblaciones, bosques entre otros.
+
+En esta página web los usuarios del juego podrán encontrar información necesaria y valiosa para obtener un mayor **nivel de juego**. Al ser un juego muy competitivo y siempre tener que estar a la vanguardia para los posibles enfrentamientos entre Pokemons, es esencial visitar esta página web para encontrar las fortalezas que necesitas en la búsqueda de convertirte en un **maestro Pokemon.**
+
+### Historias de Usuario
+
+###### Historia de Usuario 01
+
+**Como** usuario
+**Quiero** entrar a la página 
+**Para** ver el listado de los pokemons.
+> Desarrollo
+
+El usuario al entrar a la página web encontrartá todos los Pokemons mediante una visualización amigable que le permitirá hacer uso de las diferentes herramientas de la propia página.
+
+###### Historia de Usuario 02
+
+**Como** usuario
+**Quiero** buscar el nombre del pokemon
+**Para** que me aparezca el pokemon elegido.
+> Desarrollo
+
+El usuario podrá escribir el nombre del Pokémon a través de un buscador para encontrarlo, y obtener de él información básica como: Nombre, número de posición en la pagina web, una imagen del mismo y su tipo; esta información aparecerá mediante tarjetas que facilitan la visualización del Pokemon buscado.
+
+###### Historia de Usuario 03
+
+**Como** usuario
+**Quiero** darle click al pokemon buscado
+**Para** conocer sus características(fortalezas, debilidades, evolución, etc)
+> Desarrollo
+
+El usuario podrá hacer click en cada tarjeta del pokemon buscado y encontrar información más detallada como: Nombre, número, imagen, tipo, peso, altura, caramelos y su siguiente evolución(si la tuviera).
+
+
+###### Historia de Usuario 04
+
+**Como** usuario
+**Quiero** encontrar el página estadísticas sobre los Pokemons 
+**Para** conocer el nivel de cada uno de ellos.
+> Desarrollo
+
+El usuario podrá acceder a un menú despleglable haciendo click en el TopTen para encontrar información estadística de los 10 Pokemons más fuertes en base a: Ataque, defensa, resistencia, max-cp, max-hp.
+
+### Sketch - Prototipo de baja fidelidad
+
+> Se trabajó en una idea planteada a lápiz y papel para entender con facilidad lo que el usuario desea.
+---Aquí van las imágenes del prototipo de baja fidelidad---
+
+### Diseño interfaz de Usuario - Prototipo de alta fidelidad
+> Se trabajó con un editor de gráficos vectorial y una herramienta de generación de prototipos ([Figma](http://www.figma.com/?fuid= "Figma")) para tener un diseño más profesional y reflejar lo que el usuario desea. 
+---Aquí va el link del prototipo de alta fidelidad en figma---
+### Objetivos de Aprendizaje 
+
+##### Uso de HTML semántico
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <mate charest="utf-8" />
+        <title>Hello world!</title>
+    </head>
+    <body>
+		<main>
+			<header>
+				<h1>Hello world!</h1>
+			</header>	
+		</main>
+		<footer></footer>
+		<script></script>
+    </body>
+</html>
+##### Selectores, modelo de caja y flexbox en CCS
+[CSS Selectors-MDN](https://developer.mozilla.org/es/docs/Web/CSS/CSS_Selectors "CSS Selectors-MDN")
+[Box Model](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Introduction_to_the_CSS_box_model "Box Model")
+[Flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox "Flexbox")
+[Responsive Design](https://developer.mozilla.org/es/docs/Learn/CSS/CSS_layout/Responsive_Design "Responsive Design")
+##### Selectores, eventos y manipulación dinámica el DOM
+[Introducción al DOM-MDN](https://developer.mozilla.org/es/docs/Web/API/Document_Object_Model/Introduction "Introducción al DOM")
+[Localizando elementos DOM usando selectores-MDN](https://developer.mozilla.org/es/docs/Web/API/Document_object_model/Locating_DOM_elements_using_selectors "Localizando elementos DOM usando selectores-MDN")
+[EventTarget.addEventListener()-MDN](https://developer.mozilla.org/es/docs/Web/API/EventTarget/addEventListener "Evento AddEventListener-MDN")
+[Document.createElement()-MDN](https://developer.mozilla.org/es/docs/Web/API/Document/createElement "Document.createElement()")
+[Element.innerHTML()-MDN](https://developer.mozilla.org/es/docs/Web/API/Element/innerHTML "Element.innerHTML()-MDN")
+[Node.appendChild()-MDN](https://developer.mozilla.org/es/docs/Web/API/Node/appendChild "Node.appendChild()-MDN")
+##### Javascript
+[Métodos de Array-MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array "Métodos de Array")
+[Condicionales-MDN](https://developer.mozilla.org/es/docs/Learn/JavaScript/Building_blocks/conditionals "Condicionales-MDN")
+[Bucles e iteración](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Loops_and_iteration "Bucles e iteración")
+[Funciones(Parámetros y argumentos)-MDN](https://developer.mozilla.org/es/docs/Web/JavaScript/Guide/Functions "Funciones(Parámetros y argumentos)-MDN")
+[ECMAScript (ES Modules-Import)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/import "ECMAScript (ES Modules-Import)")
+[ECMAScript (ES Modules-Export)](https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Statements/export "ECMAScript (ES Modules-Export)")
+[TEST CON JEST](https://lms.laboratoria.la/cohorts/lim-2022-01-bootcamp-js-lim017/topics/javascript/11-testing/00-opening "Test con Jest")
+##### Control de versiones(Git y GitHub)
+[Página Oficial GitHub](https://pages.github.com/ "Página Oficial GitHub")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*# /*Data Lovers
 
 ## Índice
 
@@ -615,4 +783,4 @@ Cuando ya estés lista para codear, te sugerimos empezar de esta manera:
 * [ ] UI: Muestra lista y/o tabla con datos y/o indicadores.
 * [ ] UI: Permite ordenar data por uno o más campos (asc y desc).
 * [ ] UI: Permite filtrar data en base a una condición.
-* [ ] UI: Es _responsive_.
+* [ ] UI: Es _responsive_.*/

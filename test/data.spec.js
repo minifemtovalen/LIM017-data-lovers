@@ -44,8 +44,8 @@ describe('searchPokemonByName', () => {
   });
 
   it('should return an "squirtle" for "SQUIRTLE', () => {
-    const searchedField = [{ name: 'squirtle' }];
-    const foundField = [{ name: 'SQUIRTLE' }];
-    expect(searchPokemonByName(searchedField)).toBe(foundField);
+    const searchedField = [{ name: 'seel'}, { name: 'squirtle' }, { name: 'butterfree' }];
+    const foundField = [{ name: 'SQUIRTLE ' }];
+    expect(searchPokemonByName(searchedField, 'squirtle')).toBe(foundField);
   });
 });

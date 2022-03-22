@@ -20,6 +20,7 @@ export const filterData = (pokemons, type) => {
     else {
       return false;
     }
+    
   })
   return filteredData;
 };

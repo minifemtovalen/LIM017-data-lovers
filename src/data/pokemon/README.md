@@ -1,4 +1,4 @@
-# Pokémon
+/*# Pokémon
 
 Pokémon GO es una experiencia de juego internacional que cuenta con más de mil
 millones de descargas y ha sido nombrada "el mejor juego para móviles" por
@@ -34,4 +34,4 @@ de los hallazgos.
   maestro Pokémon saber cuántas y cuáles son las evoluciones que tienen antes y
   después.
 - Los Pokémon se alimentan de caramelos y un maestro Pokémon necesita saber
-  cuántos caramelos necesita un Pokémon para evolucionar.
+  cuántos caramelos necesita un Pokémon para evolucionar.*/

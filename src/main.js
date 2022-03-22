@@ -165,8 +165,7 @@ const modalContainer = document.querySelectorAll('.modal_container')[0];
 const close = document.querySelectorAll(".close")[0];
 
 document.querySelectorAll('.pokemon-box').forEach((pokemon) => {
-pokemon.addEventListener('click', function searchForID() {
-  console.log('click pokemon')
+pokemon.addEventListener('click', () => {
   modalContainer.style.opacity = '1';
   modalContainer.style.visibility = 'visible';
   const modalContent = document.querySelector(".modal_content");
@@ -179,8 +178,10 @@ pokemon.addEventListener('click', function searchForID() {
     <div NEXT EVOLUTION: ${pokemon['next-evolution'] ? pokemon['next-evolution'].map(evolution => evolution.name).join(", ") : "This is the last evolution"}</div>
   </section>
   `;
-  for(let pokemon of originalData){  
-  modalContent.innerHTML += infoModal(pokemon)}
+  //let infoBox = searchForID(pokemon)
+  /*for(let pokemon of originalData){*/
+  modalContent.innerHTML = infoModal(pokemon)
+  console.log(pokemon)
 
 
 
@@ -202,7 +203,6 @@ weight.innerHTML = `WEIGHT: ${pokemon.weight}`
 candy.innerHTML = `Candy: ${pokemon.candy}`
 nextEvolution.innerHTML = `NEXT EVOLUTION: ${pokemon['next-evolution'] ? pokemon['next-evolution'].map(evolution => evolution.name).join(", ") : "This is the last evolution"}`*/
 })
-return searchForID
  
 });
 
