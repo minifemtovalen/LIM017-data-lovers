@@ -2,52 +2,52 @@
 
 ![](Images/pokemongo.jpg)
 
-**Pokémon GO** es un videojuego de realidad aumentada basado en la localización desarrollado por **Niantic** para dispositivos iOS y Android. Es un videojuego gratuito pero contiene microtransacciones. El juego consiste en buscar y capturar personajes de la **saga Pokémon** escondidos en ubicaciones del mundo real y luchar con ellos, lo que implica desplazarse físicamente por las calles de la ciudad para progresar. La aplicación comporta un elemento de interacción social, ya que promueve reuniones físicas de los usuarios en distintas ubicaciones de sus poblaciones, bosques entre otros.
+**Pokémon GO** es un videojuego de realidad aumentada basado en la localización por GPS, forma parte de la franquicia Pokémon, y fue desarrollado y publicado por **Niantic** en colaboración con **Nintendo** y **The Pokémon Company** para dispositivos iOS y Android. Es un videojuego gratuito, utiliza un modelo comercial freemium combinado con publicidad local y permite microtransacciones en la aplicación para adquirir artículos adicionales. El juego consiste en localizar, capturar, entrenar y luchar contra criaturas virtuales de la **saga**, llamadas Pokémon, escondidas en ubicaciones del mundo real, lo que implica desplazarse físicamente por las calles de la ciudad para progresar en la partida. El juego se lanzó con alrededor de 150 especies de Pokémon, que aumentaron a alrededor de 700 para 2021.
 
-En esta página web los usuarios del juego podrán encontrar información necesaria y valiosa para obtener un mayor **nivel de juego**. Al ser un juego muy competitivo y siempre tener que estar a la vanguardia para los posibles enfrentamientos entre Pokemons, es esencial visitar esta página web para encontrar las fortalezas que necesitas en la búsqueda de convertirte en un **maestro Pokemon.**
+En esta página web los usuarios del juego podrán encontrar información necesaria y valiosa para obtener un mayor **nivel de juego**. Al ser un juego muy competitivo y siempre tener que estar a la vanguardia para los posibles enfrentamientos entre Pokémons, es esencial visitar esta página web para encontrar las fortalezas que necesitas en la búsqueda de convertirte en un **maestro Pokémon!**
 
 ### 2. Historias de Usuario
 
 ##### Historia de Usuario 01
 
-**Como** usuario
-**Quiero** entrar a la página 
-**Para** ver el listado de los pokemons.
+**Como** usuario.
+**Quiero** entrar a la página.
+**Para** ver el listado de los Pokémons.
 
 > Desarrollo
 
-El usuario al entrar a la página web encontrartá todos los Pokemons mediante una visualización amigable que le permitirá hacer uso de las diferentes herramientas de la propia página.
+El usuario al entrar a la página web encontrará todos los Pokémons mediante una visualización amigable que le permitirá hacer uso de las diferentes herramientas de la propia página.
 
 ##### Historia de Usuario 02
 
-**Como** usuario
-**Quiero** buscar el nombre del pokemon
-**Para** que me aparezca el pokemon elegido.
+**Como** usuario.
+**Quiero** buscar el nombre del Pokémon.
+**Para** que me aparezca el Pokémon elegido.
 
 > Desarrollo
 
-El usuario podrá escribir el nombre del Pokémon a través de un buscador para encontrarlo, y obtener de él información básica como: Nombre, número de posición en la pagina web, una imagen del mismo y su tipo; esta información aparecerá mediante tarjetas que facilitan la visualización del Pokemon buscado.
+El usuario podrá escribir el nombre del Pokémon a través de un buscador para encontrarlo, y obtener de él información básica como: Nombre, número de posición, una imagen del mismo y su tipo; esta información aparecerá mediante tarjetas que facilitan la visualización del Pokemon buscado.
 
 ##### Historia de Usuario 03
 
-**Como** usuario
-**Quiero** darle click al pokemon buscado
-**Para** conocer sus características(fortalezas, debilidades, evolución, etc)
+**Como** usuario.
+**Quiero** darle click al Pokémon buscado.
+**Para** conocer sus características(fortalezas, debilidades, evolución, etc).
 
 > Desarrollo
 
-El usuario podrá hacer click en cada tarjeta del pokemon buscado y encontrar información más detallada como: Nombre, número, imagen, tipo, peso, altura, caramelos y su siguiente evolución(si la tuviera), además de un menú desplegable que le brindará otras opciones.
+El usuario podrá hacer click en cada tarjeta del Pokémon buscado y encontrar información más detallada como: Nombre, número, imagen, tipo, peso, altura, caramelos y su siguiente evolución (si la tuviera), además de un menú desplegable que le brindará otras opciones.
 
 
 ##### Historia de Usuario 04
 
-**Como** usuario
-**Quiero** encontrar en la página estadísticas sobre los Pokemons 
+**Como** usuario.
+**Quiero** encontrar en la página estadísticas sobre los Pokémons.
 **Para** conocer el nivel de cada uno de ellos.
 
 > Desarrollo
 
-El usuario podrá acceder a un menú despleglable haciendo click en el TopTen para encontrar información estadística de los 10 Pokemons más fuertes en base a: Ataque, defensa, resistencia, max-cp, max-hp.
+El usuario podrá acceder a un menú despleglable haciendo click en el Ranking para encontrar información estadística de los 10 Pokémons más fuertes en base a: Ataque, defensa, resistencia, Máx-CP, Máx-HP.
 
 ### 3. Sketch - Prototipo de baja fidelidad
 
@@ -61,7 +61,7 @@ El usuario podrá acceder a un menú despleglable haciendo click en el TopTen pa
 
 
 ### 4. Diseño interfaz de Usuario - Prototipo de alta fidelidad
-> Se trabajó con un editor de gráficos vectorial y una herramienta de generación de prototipos ([Figma](http://www.figma.com/?fuid= "Figma")) para tener un diseño más profesional y reflejar lo que el usuario desea. 
+> Se trabajó con un editor de gráficos vectorial y una herramienta de generación de prototipos ([Figma](http://www.figma.com/?fuid= "Figma")) para tener un diseño más profesional y reflejar lo que el usuario desea.
 
 ![Prototipos de Alta Fidelidad](Images/pafpage01.png)
 
@@ -75,7 +75,7 @@ El usuario podrá acceder a un menú despleglable haciendo click en el TopTen pa
 
 ![](Images/pafpage03.png)
 
-[Reference link Figma][id/name] 
+[Reference link Figma][id/name]
 
 [id/name]: https://www.figma.com/proto/2cVktQV52vReP3YDmuxBbd/Untitled?node-id=1%3A2&scaling=scale-down&page-id=0%3A1&starting-point-node-id=1%3A2
 
@@ -94,7 +94,7 @@ El usuario podrá acceder a un menú despleglable haciendo click en el TopTen pa
 	<main>
 	  <header>
 	    <h1>Hello world!</h1>
-	  </header>	
+	  </header>
   </main>
 	<footer></footer>
 	<script></script>
@@ -146,7 +146,7 @@ El usuario podrá acceder a un menú despleglable haciendo click en el TopTen pa
 [Página Oficial GitHub](https://pages.github.com/ "Página Oficial GitHub")
 
 ### 6. Test de usabilidad
-Los test de usabilidad fueron esenciales en el desarrollo de nuestra página web, ya que con la colaboración de usuarios de PokemonGo, logramos definir las **historias de usuarios** lo que nos llevó a completar la experiencia del mismo. 
+Los test de usabilidad fueron esenciales en el desarrollo de nuestra página web, ya que con la colaboración de usuarios de PokemonGo, logramos definir las **historias de usuarios** lo que nos llevó a completar la experiencia del mismo.
 
 <!---#Data Lovers
 
