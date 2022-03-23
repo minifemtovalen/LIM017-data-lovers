@@ -1,4 +1,4 @@
-import { sortData, filterData, searchPokemonByName, genFilter, sortPower, searchForID } from './data.js';
+import { sortData, filterData, searchPokemonByName, genFilter, sortPower} from './data.js';
 import pokemonData from './data/pokemon/pokemon.js';
 
 //modal
@@ -181,7 +181,7 @@ pokemon.addEventListener('click', () => {
   //let infoBox = searchForID(pokemon)
   /*for(let pokemon of originalData){*/
   modalContent.innerHTML = infoModal(pokemon)
-  console.log(pokemon)
+  
 
 
 

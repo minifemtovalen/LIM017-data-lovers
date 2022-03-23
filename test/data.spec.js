@@ -1,4 +1,4 @@
-import { sortData, filterData, searchPokemonByName } from '../src/data.js';
+import { sortData, filterData, searchPokemonByName, genFilter, sortPower} from '../src/data.js';
 
 describe('sortData', () => {
   it('Es una función', () => {
@@ -33,19 +33,33 @@ describe('filterData', () => {
 });
 
 describe('searchPokemonByName', () => {
-  it('Is a function', () => {
+  it('Es una función', () => {
     expect(typeof searchPokemonByName).toBe('function');
   });
 
-  it('should throw TypeError', () => {
-    expect(() => searchPokemonByName()).toThrow(TypeError);
-    expect(() => searchPokemonByName(0)).toThrow(TypeError);
-    expect(() => searchPokemonByName(null)).toThrow(TypeError);
+  it('Debería retornar todos los pokemons que contengan pi' , () => {
+    const searchedField = [{ name: 'pikachu'}, { name: 'squirtle' }, { name: 'vulpix' }];
+    const foundField = [{ name: 'pikachu' }, {name:'vulpix'}];
+    expect(searchPokemonByName(searchedField, 'pi')).toEqual(foundField);
+  });
+});
+
+describe('genFilter', () => {
+  it('Es una función', () => {
+    expect(typeof genFilter).toBe('function');
   });
 
-  it('should return an "squirtle" for "SQUIRTLE', () => {
-    const searchedField = [{ name: 'seel'}, { name: 'squirtle' }, { name: 'butterfree' }];
-    const foundField = [{ name: 'SQUIRTLE ' }];
-    expect(searchPokemonByName(searchedField, 'squirtle')).toBe(foundField);
+  it('Debería retornar filtro por generación johto', () => {
+    const arrayGenWithoutFilter = [{ name: 'charmander', generation:{ num: 'generation i' , name: 'kanto'}}, { name: 'chikorita', generation:{ num: 'generation ii' , name: 'johto'} }, { name: 'totodile', generation:{ num: 'generation ii' , name: 'johto'}}];
+    const arrayGenWithFilter = [{ name: 'chikorita', generation:{ num: 'generation ii' , name:'johto'} }, { name: 'totodile', generation:{ num: 'generation ii' , name: 'johto'}}];
+
+    expect(genFilter(arrayGenWithoutFilter, 'johto')).toEqual(arrayGenWithFilter);
   });
+});
+
+describe('sortPower', () => {
+  it('Es una función', () => {
+    expect(typeof sortPower).toBe('function');
+  })
+
 });
