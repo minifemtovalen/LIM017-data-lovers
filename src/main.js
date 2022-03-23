@@ -1,8 +1,6 @@
-import { sortData, filterData, searchPokemonByName, genFilter, sortPower, searchForID } from './data.js';
+import { sortData, filterData, searchPokemonByName, genFilter, sortPower } from './data.js';
 import pokemonData from './data/pokemon/pokemon.js';
-
-//modal
-
+//modal import{ sortData, filterData, searchPokemonByName, genFilter, sortPower, searchById}
 const originalData = pokemonData.pokemon;
 let dataState = [...originalData];
 const showData = document.querySelector('#show-data')
@@ -54,7 +52,7 @@ const searchInput = document.querySelector('#search');
 const searchResult = () => {
   dataState = searchPokemonByName(originalData, searchInput.value);
   displayPokemon(dataState);
-  if (dataState.length === 0) {
+  if(dataState.length === 0) {
     showData.innerHTML += `<div class="search-alert">
     <h3>No Pokémon matched your search.</h3>
     <p>Try the following to find results:</p>
@@ -82,6 +80,7 @@ kantoRegion.addEventListener('click', () => {
   displayPokemon(filterByRegion)
   dataState = filterByRegion;
   navBar.classList.toggle('hidden-nav');
+  hideElements('view');
 })
 
 const johtoRegion = document.querySelector('#johto');
@@ -91,6 +90,7 @@ johtoRegion.addEventListener('click', () => {
   displayPokemon(filterByRegion)
   dataState = filterByRegion;
   navBar.classList.toggle('hidden-nav');
+  hideElements('view');
 })
 
 const dataRanking = (pokemons, stats) => {
@@ -106,34 +106,33 @@ const dataRanking = (pokemons, stats) => {
   } else {
     power = 'Max. HP';
   }
-  let powerList = '';
-  powerList += `
-        <tr>
-          <th>N° Pokedex</th>
-          <th>Nombre</th>
-          <th>${power}</th>
-        </tr>`;
+  let powerList = `
+      <tr>
+        <th>Pokedex N°</th>
+        <th>Name</th>
+        <th>${power}</th>
+      </tr>`;
   for (let i = 0; i < 10; i += 1) {
     powerList += `
     <tr>
       <td>${pokemons[i].num}</td>
       <td><img class='pokeImage' src=${pokemons[i].img}>${pokemons[i].name}</td>`;
     if (stats === 'attack') {
-      powerList += `<td>${pokemons[i].stats['base-attack']}</td>
+      powerList +=  `<td>${pokemons[i].stats['base-attack']}</td>
       </tr>`;
     } else if (stats === 'defense') {
-      powerList += `<td>${pokemons[i].stats['base-defense']}</td>
+        powerList += `<td>${pokemons[i].stats['base-defense']}</td>
         </tr>`;
     } else if (stats === 'health') {
-      powerList += `
+        powerList += `
         <td>${pokemons[i].stats['base-stamina']}</td>
       </tr>`;
     } else if (stats === 'max-cp') {
-      powerList += `
+        powerList += `
         <td>${pokemons[i].stats['max-cp']}</td>
       </tr>`;
     } else {
-      powerList += `
+        powerList += `
         <td>${pokemons[i].stats['max-hp']}</td>
       </tr>`;
     }
@@ -141,14 +140,26 @@ const dataRanking = (pokemons, stats) => {
   document.querySelector('#ranking-table').innerHTML = powerList;
 };
 
+function hideElements (view) {
+  if (view === 'ranking') {
+    document.querySelector('#power-data').classList.remove('hide');
+    document.querySelector('.card').classList.add('hide');
+    document.querySelector('#main-view').classList.add('hide');
+    document.querySelector('#show-pokemon').classList.add('hide');
+  } else {
+    document.querySelector('#power-data').classList.add('hide');
+    document.querySelector('.card').classList.remove('hide');
+    document.querySelector('#main-view').classList.remove('hide');
+    document.querySelector('#show-pokemon').classList.remove('hide');
+  }
+}
+
 const selectRanking = document.querySelector('#ranking');
 selectRanking.addEventListener('click', () => {
-  document.querySelector('.card').classList.add('hide');
-  document.querySelector('#main-view').classList.add('hide');
-  document.querySelector('#show-pokemon').classList.add('hide');
-  document.querySelector('#power-data').classList.toggle('hide');
-  dataRanking(sortPower(originalData, 'attack'), 'attack');
+  const debugging = sortPower(originalData, 'attack');
+  dataRanking(debugging, 'attack');
   navBar.classList.toggle('hidden-nav');
+  hideElements('ranking');
 });
 
 const sortPowerSelect = document.querySelector('#sort-power');
@@ -158,66 +169,50 @@ sortPowerSelect.addEventListener('change', () => {
   dataRanking(sortPower(originalData, powerSelected), powerSelected);
 });
 
-
-//Mostran Info Modal
-
-const modalContainer = document.querySelectorAll('.modal_container')[0];
-const close = document.querySelectorAll(".close")[0];
+//experimento modal
+/*
+const modalContainer = document.querySelectorAll('.modal-container')[0];
+const close = document.querySelectorAll('.close')[0];
+// let infoModal = '';
 
 document.querySelectorAll('.pokemon-box').forEach((pokemon) => {
-pokemon.addEventListener('click', () => {
-  modalContainer.style.opacity = '1';
-  modalContainer.style.visibility = 'visible';
-  const modalContent = document.querySelector(".modal_content");
-  modalContent.innerHTML= '';
-  const infoModal = (pokemon) => `
-  <section>
-    <div class="numPokemon">${pokemon.num}</div>
-    <div><img class="imgPokemon" src="${pokemon.img}"></div>
-    <div class= "typePokemon">${pokemon.type}</div>
-    <div NEXT EVOLUTION: ${pokemon['next-evolution'] ? pokemon['next-evolution'].map(evolution => evolution.name).join(", ") : "This is the last evolution"}</div>
-  </section>
-  `;
-  //let infoBox = searchForID(pokemon)
-  /*for(let pokemon of originalData){*/
-  modalContent.innerHTML = infoModal(pokemon)
-  console.log(pokemon)
-
-
-
-/*const name = document.querySelectorAll(".name")[0];
-const img = document.querySelectorAll(".img")[0];
-const num = document.querySelectorAll(".num")[0];
-//const type = document.querySelectorAll(".type")[0];
-const height = document.querySelectorAll(".height")[0];
-const weight = document.querySelectorAll(".weight")[0]
-const candy = document.querySelectorAll(".candy")[0]
-const nextEvolution = document.querySelectorAll(".next_evolution")[0]
- 
-name.innerHTML = pokemon.name
-img.setAttribute("src", pokemon.img)
-num.innerHTML = pokemon.num
-//type.innerHTML = `TIPO: ${pokemon.type.join(", ")}`,
-height.innerHTML = `HEIGHT: ${pokemon.height}`
-weight.innerHTML = `WEIGHT: ${pokemon.weight}`
-candy.innerHTML = `Candy: ${pokemon.candy}`
-nextEvolution.innerHTML = `NEXT EVOLUTION: ${pokemon['next-evolution'] ? pokemon['next-evolution'].map(evolution => evolution.name).join(", ") : "This is the last evolution"}`*/
-})
- 
+  pokemon.addEventListener('click', () => {
+    console.log('click');
+    modalContainer.style.opacity = '1';
+    modalContainer.style.visibility = 'visible';
+    const modalContent = document.querySelector('.modal-content');
+    modalContent.innerHTML= `
+      <section>
+        <div class="numPokemon">${pokemon.num}</div>
+        <div><img class="imgPokemon" src="${pokemon.img}"></div>
+        <div class= "typePokemon">${pokemon.type}</div>
+        <div NEXT EVOLUTION: ${pokemon['next-evolution'] ? pokemon['next-evolution'].map(evolution => evolution.name).join(', ') : "This is the last evolution"}</div>
+      </section>`;
+      for (let pokemon of originalData) {
+      modalContent.innerHTML += infoModal(pokemon);
+    }
+  })
 });
 
 close.addEventListener('click', () => {
-setTimeout(() => {
-modalContainer.style.opacity = '0';
-modalContainer.style.visibility = 'hidden';
-}, 500)
+  setTimeout(() => {
+    modalContainer.style.opacity = '0';
+    modalContainer.style.visibility = 'hidden';
+  }, 500)
 })
 
 window.addEventListener('click', (e) => {
-if (e.target == modalContainer) {
-  setTimeout(() => {
-  modalContainer.style.opacity = '0';
-  modalContainer.style.visibility = 'hidden';
-}, 300)
-}
-});
+  if (e.target == modalContainer) {
+    setTimeout(() => {
+      modalContainer.style.opacity = '0';
+      modalContainer.style.visibility = 'hidden';
+    }, 300)
+  }
+}); */
+
+/*modal no funciona al primer click, quizas es porque cuelga mi pc ya que todos los pokemones cargan.
+modal no funciona al filtrar por tipo
+modal no funciona en generacion
+modal no funciona al ordenar alfabeticamente y descendiente*/
+
+//posibles cuausas -> addEventListeners

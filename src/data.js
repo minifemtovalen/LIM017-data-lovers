@@ -1,6 +1,6 @@
 export const sortData = (pokemons, order = 1) => {
-  const avoidObjMutation = new Array(...pokemons);
-  const orderedData = avoidObjMutation.sort((a, b) => {
+  const cloneOriginalData = new Array(...pokemons);
+  const orderedData = cloneOriginalData.sort((a, b) => {
     if (a.name < b.name) {
       return -1 * order;
     }
@@ -14,13 +14,12 @@ export const sortData = (pokemons, order = 1) => {
 
 export const filterData = (pokemons, type) => {
   const filteredData = pokemons.filter((pokemon) => {
-    if (pokemon.type.includes(type)) {
+    if(pokemon.type.includes(type)) {
       return true;
     }
     else {
       return false;
     }
-    
   })
   return filteredData;
 };
@@ -28,7 +27,7 @@ export const filterData = (pokemons, type) => {
 export const searchPokemonByName = (pokemons, name) => {
   return pokemons.filter((pokemon) => {
     const pokemonName = pokemon.name.toUpperCase();
-    if (pokemonName.indexOf(name.toUpperCase()) !== -1) {
+    if(pokemonName.indexOf(name.toUpperCase()) !== -1) {
       return pokemon;
     }
   })
@@ -42,34 +41,28 @@ export const searchPokemonByName = (pokemons, name) => {
  */
 
 export const genFilter = (pokemons, gen) => {
-  const genFiltered = pokemons.filter((pokemon) => {
-    if (pokemon.generation.name.includes(gen)) {
-      return true;
-    } 
-    else {
-      return false
-    }
-  })
-  return genFiltered
-}
+  const genFiltered = pokemons.filter((pokemon) => pokemon.generation.name.includes(gen));
+  return genFiltered;
+};
 
-export const sortPower = (pokemons, stats) => {
+export const sortPower = (pokemons,stats) => {
+  const clonedData = new Array(...pokemons);
   let arrPowers = [];
   if (stats === 'attack') {
-    arrPowers = pokemons.sort((a, b) => b.stats['base-attack'] - a.stats['base-attack']);
+    arrPowers = clonedData.sort((a, b) => b.stats['base-attack'] - a.stats['base-attack']);
   } else if (stats === 'defense') {
-    arrPowers = pokemons.sort((a, b) => b.stats['base-defense'] - a.stats['base-defense']);
+    arrPowers = clonedData.sort((a, b) => b.stats['base-defense'] - a.stats['base-defense']);
   } else if (stats === 'health') {
-    arrPowers = pokemons.sort((a, b) => b.stats['base-stamina'] - a.stats['base-stamina']);
+    arrPowers = clonedData.sort((a, b) => b.stats['base-stamina'] - a.stats['base-stamina']);
   } else if (stats === 'max-cp') {
-    arrPowers = pokemons.sort((a, b) => b.stats['max-cp'] - a.stats['max-cp']);
+    arrPowers = clonedData.sort((a, b) => b.stats['max-cp'] - a.stats['max-cp']);
   } else {
-    arrPowers = pokemons.sort((a, b) => b.stats['max-hp'] - a.stats['max-hp']);
+    arrPowers = clonedData.sort((a, b) => b.stats['max-hp'] - a.stats['max-hp']);
   }
   return arrPowers;
 };
 
-export const searchForID = (pokemonBox, num) => {
+export const searchById = (pokemonBox, num) => {
   const numPokemon = pokemonBox.find(element => element.num === num);
   return numPokemon;
-}
+};
