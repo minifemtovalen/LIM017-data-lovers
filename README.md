@@ -94,8 +94,8 @@ El usuario podrá acceder a un menú despleglable haciendo click en el TopTen pa
 	<main>
 	  <header>
 	    <h1>Hello world!</h1>
-		</header>	
-	</main>
+	  </header>	
+  </main>
 	<footer></footer>
 	<script></script>
   </body>
@@ -146,15 +146,7 @@ El usuario podrá acceder a un menú despleglable haciendo click en el TopTen pa
 [Página Oficial GitHub](https://pages.github.com/ "Página Oficial GitHub")
 
 ### 6. Test de usabilidad - Problemas detectados
-
-
-
-
-
-
-
-
-
+Los test de usabilidad fueron esenciales en el desarrollo de nuestra página web, ya que con la colaboración de usuarios de PokemonGo, logramos definir las **historias de usuarios** lo que nos llevó a completar la experiencia del mismo. 
 
 <!---#Data Lovers
 
