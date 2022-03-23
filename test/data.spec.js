@@ -23,7 +23,7 @@ describe('filterData', () => {
     expect(typeof filterData).toBe('function');
   });
 
-  it('Debería retornar filtro por tipo', () => {
+  it('Debería retor++++++++++++++++++++++++++++++++++++nar filtro por tipo', () => {
     const arrayWithoutFilter = [{ name: 'seel', type: 'water' }, { name: 'squirtle', type: 'water' }, { name: 'butterfree', type: 'flying' }];
     const arrayWithFilter = [{ name: 'seel', type: 'water' }, { name: 'squirtle', type: 'water' }];
 

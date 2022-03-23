@@ -33,13 +33,6 @@ export const searchPokemonByName = (pokemons, name) => {
   })
 };
 
-/**
- *
- *if (!name) throw new TypeError('You have not entered any value');
-  if (typeof name !== "string") throw new TypeError('The entered value is not text');
-  if (typeof pokemons !== "object") throw new TypeError('The value entered is not a valid data');
- */
-
 export const genFilter = (pokemons, gen) => {
   const genFiltered = pokemons.filter((pokemon) => pokemon.generation.name.includes(gen));
   return genFiltered;
@@ -50,7 +43,6 @@ export const sortPower = (pokemons,stats) => {
   let arrPowers = [];
   if (stats === 'attack') {
     arrPowers = clonedData.sort((a, b) => b.stats['base-attack'] - a.stats['base-attack']);
-    console.log(arrPowers);
   } else if (stats === 'defense') {
     arrPowers = clonedData.sort((a, b) => b.stats['base-defense'] - a.stats['base-defense']);
   } else if (stats === 'health') {
@@ -62,3 +54,9 @@ export const sortPower = (pokemons,stats) => {
   }
   return arrPowers;
 };
+/*
+export const searchForId = (pokemonBox, num) => {
+  const numPokemon = pokemonBox.find(element => element.num === num);
+  return numPokemon;
+} */
+
