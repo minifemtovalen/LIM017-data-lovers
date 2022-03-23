@@ -19,7 +19,6 @@ const displayPokemon = (pokemonArr) => {
     <div class="pokemon-type">${typeList.join('')}</div>`
     showData.appendChild(pokemonDiv);
   });
-  modalListener();
 }
 
 displayPokemon(dataState);
@@ -195,35 +194,6 @@ document.querySelectorAll('.pokemon-box').forEach((pokemon) => {
     })
   });
 
-const modalContainer = document.querySelectorAll('.modal-container')[0];
-const close = document.querySelectorAll('.close')[0];
-
-function modalListener () {
-  document.querySelectorAll('.pokemon-box').forEach((pokemon) => {
-    pokemon.addEventListener('click', () => {
-      const num = pokemon.querySelector('.pokemon-num').innerHTML;
-      const singleItem = pokemonSeeker(originalData, num)[0];
-      modalContainer.style.opacity = '1';
-      modalContainer.style.visibility = 'visible';
-      const modalContent = document.querySelector('.modal-content');
-      modalContent.innerHTML= `
-        <section>
-          <div class="numPokemon">${singleItem.num}</div>
-          <div><img class="imgPokemon" src="${singleItem.img}"></div>
-          <div class= "typePokemon">${singleItem.type}</div>
-          <div> NEXT EVOLUTION: ${singleItem.evolution['next-evolution'] ? singleItem.evolution['next-evolution'].map(evolution => evolution.name).join(', ') : "This is the last evolution"}</div>
-        </section>`;
-    })
-  });
-}
-
-close.addEventListener('click', () => {
-  setTimeout(() => {
-    modalContainer.style.opacity = '0';
-    modalContainer.style.visibility = 'hidden';
-  }, 500)
-})
-
 window.addEventListener('click', (e) => {
   if (e.target == modalContainer) {
     setTimeout(() => {
@@ -232,7 +202,6 @@ window.addEventListener('click', (e) => {
     }, 300)
   }
 
-});
 });
 
 /*modal no funciona al primer click, quizas es porque cuelga mi pc ya que todos los pokemones cargan.
@@ -243,4 +212,3 @@ modal no funciona al ordenar alfabeticamente y descendiente*/
 //posibles cuausas -> addEventListeners
 
 // console.log(pokemonSeeker(originalData, '001'));
-

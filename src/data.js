@@ -68,5 +68,3 @@ export const pokemonSeeker = (pokemons, num) => {
 
 };
 
-};
-
