@@ -145,7 +145,7 @@ El usuario podrá acceder a un menú despleglable haciendo click en el TopTen pa
 
 [Página Oficial GitHub](https://pages.github.com/ "Página Oficial GitHub")
 
-### 6. Test de usabilidad - Problemas detectados
+### 6. Test de usabilidad
 Los test de usabilidad fueron esenciales en el desarrollo de nuestra página web, ya que con la colaboración de usuarios de PokemonGo, logramos definir las **historias de usuarios** lo que nos llevó a completar la experiencia del mismo. 
 
 <!---#Data Lovers
