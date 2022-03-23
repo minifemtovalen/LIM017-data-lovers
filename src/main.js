@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-import { sortData, filterData, searchPokemonByName, genFilter, sortPower} from './data.js';
-=======
-import { sortData, filterData, searchPokemonByName, genFilter, sortPower } from './data.js';
->>>>>>> e20465c957e4455eba895ac34f76291729f65dca
+import { sortData, filterData, searchPokemonByName, genFilter, sortPower, pokemonSeeker} from './data.js';
 import pokemonData from './data/pokemon/pokemon.js';
-//modal import{ sortData, filterData, searchPokemonByName, genFilter, sortPower, searchById}
+
 const originalData = pokemonData.pokemon;
 let dataState = [...originalData];
 const showData = document.querySelector('#show-data')
@@ -173,79 +169,29 @@ sortPowerSelect.addEventListener('change', () => {
   dataRanking(sortPower(originalData, powerSelected), powerSelected);
 });
 
-//experimento modal
-/*
+//Modal
+
 const modalContainer = document.querySelectorAll('.modal-container')[0];
-const close = document.querySelectorAll('.close')[0];
-// let infoModal = '';
 
 document.querySelectorAll('.pokemon-box').forEach((pokemon) => {
-<<<<<<< HEAD
-pokemon.addEventListener('click', () => {
-  modalContainer.style.opacity = '1';
-  modalContainer.style.visibility = 'visible';
-  const modalContent = document.querySelector(".modal_content");
-  modalContent.innerHTML= '';
-  const infoModal = (pokemon) => `
-  <section>
-    <div class="numPokemon">${pokemon.num}</div>
-    <div><img class="imgPokemon" src="${pokemon.img}"></div>
-    <div class= "typePokemon">${pokemon.type}</div>
-    <div NEXT EVOLUTION: ${pokemon['next-evolution'] ? pokemon['next-evolution'].map(evolution => evolution.name).join(", ") : "This is the last evolution"}</div>
-  </section>
-  `;
-  //let infoBox = searchForID(pokemon)
-  /*for(let pokemon of originalData){*/
-  modalContent.innerHTML = infoModal(pokemon)
-  
-
-
-
-/*const name = document.querySelectorAll(".name")[0];
-const img = document.querySelectorAll(".img")[0];
-const num = document.querySelectorAll(".num")[0];
-//const type = document.querySelectorAll(".type")[0];
-const height = document.querySelectorAll(".height")[0];
-const weight = document.querySelectorAll(".weight")[0]
-const candy = document.querySelectorAll(".candy")[0]
-const nextEvolution = document.querySelectorAll(".next_evolution")[0]
- 
-name.innerHTML = pokemon.name
-img.setAttribute("src", pokemon.img)
-num.innerHTML = pokemon.num
-//type.innerHTML = `TIPO: ${pokemon.type.join(", ")}`,
-height.innerHTML = `HEIGHT: ${pokemon.height}`
-weight.innerHTML = `WEIGHT: ${pokemon.weight}`
-candy.innerHTML = `Candy: ${pokemon.candy}`
-nextEvolution.innerHTML = `NEXT EVOLUTION: ${pokemon['next-evolution'] ? pokemon['next-evolution'].map(evolution => evolution.name).join(", ") : "This is the last evolution"}`*/
-})
- 
-=======
   pokemon.addEventListener('click', () => {
-    console.log('click');
+    const num = pokemon.querySelector('.pokemon-num').innerHTML;
+    const singleItem = pokemonSeeker(originalData, num)[0];
     modalContainer.style.opacity = '1';
     modalContainer.style.visibility = 'visible';
     const modalContent = document.querySelector('.modal-content');
     modalContent.innerHTML= `
-      <section>
-        <div class="numPokemon">${pokemon.num}</div>
-        <div><img class="imgPokemon" src="${pokemon.img}"></div>
-        <div class= "typePokemon">${pokemon.type}</div>
-        <div NEXT EVOLUTION: ${pokemon['next-evolution'] ? pokemon['next-evolution'].map(evolution => evolution.name).join(', ') : "This is the last evolution"}</div>
+      <section class="infoModal">
+        <div class="namePokemon">${singleItem.name.toUpperCase()}</div>
+        <div><img class="imgPokemon" src="${singleItem.img}"></div>
+        <div class="heightPokemon"> HEIGHT: ${singleItem.size.height}</div>
+        <div class="weightPokemon">WEIGHT: ${singleItem.size.weight}</div>
+        <div class="typePokemon">TYPE: ${singleItem.type}</div>
+        <div class="generationPokemon">GENERATION: ${singleItem.generation.name}</div>
+        <div class="evolutionPokemon">NEXT EVOLUTION: ${singleItem.evolution['next-evolution'] ? singleItem.evolution['next-evolution'].map(evolution => evolution.name.toUpperCase()).join(', ') : "This is the last evolution"}</div>
       </section>`;
-      for (let pokemon of originalData) {
-      modalContent.innerHTML += infoModal(pokemon);
-    }
-  })
->>>>>>> e20465c957e4455eba895ac34f76291729f65dca
-});
-
-close.addEventListener('click', () => {
-  setTimeout(() => {
-    modalContainer.style.opacity = '0';
-    modalContainer.style.visibility = 'hidden';
-  }, 500)
-})
+    })
+  });
 
 window.addEventListener('click', (e) => {
   if (e.target == modalContainer) {
@@ -254,11 +200,4 @@ window.addEventListener('click', (e) => {
       modalContainer.style.visibility = 'hidden';
     }, 300)
   }
-}); */
-
-/*modal no funciona al primer click, quizas es porque cuelga mi pc ya que todos los pokemones cargan.
-modal no funciona al filtrar por tipo
-modal no funciona en generacion
-modal no funciona al ordenar alfabeticamente y descendiente*/
-
-//posibles cuausas -> addEventListeners
+}); 

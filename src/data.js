@@ -62,7 +62,7 @@ export const sortPower = (pokemons,stats) => {
   return arrPowers;
 };
 
-export const searchById = (pokemonBox, num) => {
-  const numPokemon = pokemonBox.find(element => element.num === num);
-  return numPokemon;
+export const pokemonSeeker = (pokemons, num) => {
+  const pokemonFound = pokemons.filter((pokemon) => pokemon.num === num);
+  return pokemonFound;
 };
