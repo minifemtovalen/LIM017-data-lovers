@@ -65,4 +65,8 @@ export const sortPower = (pokemons,stats) => {
 export const pokemonSeeker = (pokemons, num) => {
   const pokemonFound = pokemons.filter((pokemon) => pokemon.num === num);
   return pokemonFound;
+
 };
+
+};
+
