@@ -36,7 +36,7 @@ export default {
       "fighting",
       "fairy"
     ],
-    "weaknesses": [
+      "weaknesses": [
       "fire",
       "ice",
       "flying",

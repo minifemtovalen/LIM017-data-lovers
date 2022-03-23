@@ -1,6 +1,6 @@
 import { sortData, filterData, searchPokemonByName, genFilter, sortPower } from './data.js';
 import pokemonData from './data/pokemon/pokemon.js';
-//modal
+//modal import{ sortData, filterData, searchPokemonByName, genFilter, sortPower, searchById}
 const originalData = pokemonData.pokemon;
 let dataState = [...originalData];
 const showData = document.querySelector('#show-data')
@@ -169,7 +169,7 @@ sortPowerSelect.addEventListener('change', () => {
   dataRanking(sortPower(originalData, powerSelected), powerSelected);
 });
 
-//Mostran Info Modal
+//experimento modal
 /*
 const modalContainer = document.querySelectorAll('.modal-container')[0];
 const close = document.querySelectorAll('.close')[0];
@@ -208,12 +208,11 @@ window.addEventListener('click', (e) => {
       modalContainer.style.visibility = 'hidden';
     }, 300)
   }
-});
-*/
+}); */
 
-//modal no funciona al primer click, quizas es porque cuelga mi pc ya que todos los pokemones cargan.
-// modal no funciona al filtrar por tipo
-// modal no funciona en generacion
-//modal no funciona al ordenar alfabeticamente y descendiente
+/*modal no funciona al primer click, quizas es porque cuelga mi pc ya que todos los pokemones cargan.
+modal no funciona al filtrar por tipo
+modal no funciona en generacion
+modal no funciona al ordenar alfabeticamente y descendiente*/
 
 //posibles cuausas -> addEventListeners
