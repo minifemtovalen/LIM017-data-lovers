@@ -1,4 +1,4 @@
-import { sortData, filterData, searchPokemonByName, genFilter, sortPower } from './data.js';
+import { sortData, filterData, searchPokemonByName, genFilter, sortPower, pokemonSeeker} from './data.js';
 import pokemonData from './data/pokemon/pokemon.js';
 //modal import{ sortData, filterData, searchPokemonByName, genFilter, sortPower, searchById}
 const originalData = pokemonData.pokemon;
@@ -19,6 +19,7 @@ const displayPokemon = (pokemonArr) => {
     <div class="pokemon-type">${typeList.join('')}</div>`
     showData.appendChild(pokemonDiv);
   });
+  modalListener();
 }
 
 displayPokemon(dataState);
@@ -169,30 +170,27 @@ sortPowerSelect.addEventListener('change', () => {
   dataRanking(sortPower(originalData, powerSelected), powerSelected);
 });
 
-//experimento modal
-/*
 const modalContainer = document.querySelectorAll('.modal-container')[0];
 const close = document.querySelectorAll('.close')[0];
-// let infoModal = '';
 
-document.querySelectorAll('.pokemon-box').forEach((pokemon) => {
-  pokemon.addEventListener('click', () => {
-    console.log('click');
-    modalContainer.style.opacity = '1';
-    modalContainer.style.visibility = 'visible';
-    const modalContent = document.querySelector('.modal-content');
-    modalContent.innerHTML= `
-      <section>
-        <div class="numPokemon">${pokemon.num}</div>
-        <div><img class="imgPokemon" src="${pokemon.img}"></div>
-        <div class= "typePokemon">${pokemon.type}</div>
-        <div NEXT EVOLUTION: ${pokemon['next-evolution'] ? pokemon['next-evolution'].map(evolution => evolution.name).join(', ') : "This is the last evolution"}</div>
-      </section>`;
-      for (let pokemon of originalData) {
-      modalContent.innerHTML += infoModal(pokemon);
-    }
-  })
-});
+function modalListener () {
+  document.querySelectorAll('.pokemon-box').forEach((pokemon) => {
+    pokemon.addEventListener('click', () => {
+      const num = pokemon.querySelector('.pokemon-num').innerHTML;
+      const singleItem = pokemonSeeker(originalData, num)[0];
+      modalContainer.style.opacity = '1';
+      modalContainer.style.visibility = 'visible';
+      const modalContent = document.querySelector('.modal-content');
+      modalContent.innerHTML= `
+        <section>
+          <div class="numPokemon">${singleItem.num}</div>
+          <div><img class="imgPokemon" src="${singleItem.img}"></div>
+          <div class= "typePokemon">${singleItem.type}</div>
+          <div> NEXT EVOLUTION: ${singleItem.evolution['next-evolution'] ? singleItem.evolution['next-evolution'].map(evolution => evolution.name).join(', ') : "This is the last evolution"}</div>
+        </section>`;
+    })
+  });
+}
 
 close.addEventListener('click', () => {
   setTimeout(() => {
@@ -208,7 +206,7 @@ window.addEventListener('click', (e) => {
       modalContainer.style.visibility = 'hidden';
     }, 300)
   }
-}); */
+});
 
 /*modal no funciona al primer click, quizas es porque cuelga mi pc ya que todos los pokemones cargan.
 modal no funciona al filtrar por tipo
@@ -216,3 +214,5 @@ modal no funciona en generacion
 modal no funciona al ordenar alfabeticamente y descendiente*/
 
 //posibles cuausas -> addEventListeners
+
+// console.log(pokemonSeeker(originalData, '001'));

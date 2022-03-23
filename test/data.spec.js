@@ -1,4 +1,4 @@
-import { sortData, filterData, searchPokemonByName, genFilter, sortPower } from '../src/data.js';
+import { sortData, filterData, searchPokemonByName, genFilter, sortPower, pokemonSeeker } from '../src/data.js';
 
 describe('sortData', () => {
   it('Es una función', () => {
@@ -95,5 +95,18 @@ describe('sortPower', () => {
     const sortedStats = [{ stats: { 'max-hp': '200' } }, { stats: { 'max-hp': '117' } }, { stats: { 'max-hp': '84' } }];
 
     expect(sortPower(statsPokemon, 'max-hp')).toEqual(sortedStats);
+  });
+});
+
+describe('pokemonSeeker', () => {
+  it('Es una función', () => {
+    expect(typeof pokemonSeeker).toBe('function');
+  });
+
+  it('Debería retornar filtro por num', () => {
+    const pokemonArray = [{ 'num': '001' }, { 'num': '002' }, { 'num': '003' }];
+    const pokemonNumber = [{ 'num': '001' }];
+
+    expect(pokemonSeeker(pokemonArray, '001')).toEqual(pokemonNumber);
   });
 });
