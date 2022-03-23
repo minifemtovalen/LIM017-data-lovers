@@ -428,18 +428,62 @@ div#show-data {
   background: #6890f0;
 }
 
+#power-data {
+  text-align: center;
+}
+
+.items {
+  display: flex;
+  justify-content: center;
+}
+
+#ranking-table {
+  width: 50%;
+  margin-top: 2%;
+  border-collapse: collapse;
+  border: #A1A1AE 0.2em solid;
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+tr {
+  padding: 3px;
+  border-top: groove;
+  text-align: center;
+}
+
+th {
+  text-transform: capitalize;
+  border-style: groove;
+  font-weight: bold;
+  background-color: #A1A1AE;
+  border: #A1A1AE 0.2em solid;
+}
+
+td {
+  text-transform: capitalize;
+  text-align: center;
+}
+
 footer {
   text-align: center;
 }
 
 /*queries
+
 @media screen and (max-width: 600px) {
   .top-nav, .dropdown .drop-btn {
     display: none;
   }
 */
 
-.modal_container {
+/*modal*/
+
+.modal-container {
   opacity: 0;
   visibility: hidden;
   position: fixed;
@@ -454,7 +498,7 @@ footer {
   align-items: center;
 }
 
-.modal_content{
+.modal-content {
   width: 40%;
   height: 50%;
   background: #ffff;
@@ -467,7 +511,7 @@ footer {
   border-radius: 10px;
 }
 
-.close{
+.close {
   position: absolute;
   top: 5px;
   right: 5px;
@@ -480,15 +524,3 @@ footer {
   cursor: pointer;
   border-radius: 50%;
 }
-
-/*@media (min-width: 600px) and (max-width: 767px){
-  div.pokemon-box{
-    width: 10%;
-}
-}
-
-@media only screen and (min-width: 768px){
-  div.pokemon-box{
-    width: 15%;
-}
-}*/
