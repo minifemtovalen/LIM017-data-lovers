@@ -3,6 +3,9 @@ import pokemonData from './data/pokemon/pokemon.js';
 //modal import{ sortData, filterData, searchPokemonByName, genFilter, sortPower, searchById}
 const originalData = pokemonData.pokemon;
 let dataState = [...originalData];
+let dataState2 = dataState;
+let lastFilter = 'original';
+
 const showData = document.querySelector('#show-data')
 const navBar = document.querySelector('.top-nav');
 const displayPokemon = (pokemonArr) => {
@@ -29,9 +32,9 @@ orderSelect.addEventListener('change', () => {
     displayPokemon(originalData)
     dataState = originalData;
   } else {
-    const orderedResult = sortData(dataState, parseInt(orderSelect.value))
+    const orderedResult = sortData(dataState2, parseInt(orderSelect.value))
     displayPokemon(orderedResult)
-    dataState = orderedResult;
+    //dataState = orderedResult;
   }
 });
 
@@ -41,9 +44,12 @@ filterSelect.addEventListener('change', () => {
     displayPokemon(originalData)
     dataState = originalData;
   } else {
-    const filteredResult = filterData(dataState, filterSelect.value)
+    const data = lastFilter === 'generation' ? dataState : originalData;
+    const filteredResult = filterData(data, filterSelect.value)
     displayPokemon(filteredResult)
-    dataState = filteredResult;
+    dataState = lastFilter === 'generation' ? dataState : filteredResult;
+    dataState2 = filteredResult;
+    lastFilter = lastFilter === 'generation' ? lastFilter : 'type';
   }
 });
 
@@ -82,6 +88,8 @@ kantoRegion.addEventListener('click', () => {
   dataState = filterByRegion;
   navBar.classList.toggle('hidden-nav');
   hideElements('view');
+  lastFilter = 'generation'
+  dataState2 = filterByRegion;
 })
 
 const johtoRegion = document.querySelector('#johto');
@@ -92,6 +100,8 @@ johtoRegion.addEventListener('click', () => {
   dataState = filterByRegion;
   navBar.classList.toggle('hidden-nav');
   hideElements('view');
+  lastFilter = 'generation'
+  dataState2 = filterByRegion;
 })
 
 const dataRanking = (pokemons, stats) => {
@@ -182,12 +192,31 @@ function modalListener () {
       modalContainer.style.visibility = 'visible';
       const modalContent = document.querySelector('.modal-content');
       modalContent.innerHTML= `
-        <section>
-          <div class="numPokemon">${singleItem.num}</div>
-          <div><img class="imgPokemon" src="${singleItem.img}"></div>
-          <div class= "typePokemon">${singleItem.type}</div>
-          <div> NEXT EVOLUTION: ${singleItem.evolution['next-evolution'] ? singleItem.evolution['next-evolution'].map(evolution => evolution.name).join(', ') : "This is the last evolution"}</div>
-        </section>`;
+      <section class="info-modal">
+      <div class="name-pokemon">${singleItem.name.toUpperCase()}</div>
+      <div><img class="img-pokemon" src="${singleItem.img}"></div>
+      <div class="height-pokemon"> HEIGHT: ${singleItem.size.height}</div>
+      <div class="weight-pokemon">WEIGHT: ${singleItem.size.weight}</div>
+      <div class="type-pokemon">TYPE: ${singleItem.type}</div>
+      <div class="generation-pokemon">GENERATION: ${singleItem.generation.name}</div>
+      ${
+        singleItem.evolution['next-evolution'] ? singleItem.evolution['next-evolution']
+        .map((evolution) => {
+          return `<img src="https://www.serebii.net/pokemongo/pokemon/${evolution.num}.png">
+            ${
+              evolution['next-evolution'] ? evolution['next-evolution'].map((nextEvol) => {
+                return `<img src="https://www.serebii.net/pokemongo/pokemon/${nextEvol.num}.png">`
+              }).join('') : ''
+            }
+            ${
+              evolution['prev-evolution'] ? evolution['prev-evolution'].map((prevEvol) => {
+                return `<img src="https://www.serebii.net/pokemongo/pokemon/${prevEvol.num}.png">`
+              }).join('') : ''
+            }
+          `
+        }).join('') : 'This Pokemon has no further evolutions'
+      }
+    </section>`;// console.log(pokemonSeeker(originalData, '001'));
     })
   });
 }

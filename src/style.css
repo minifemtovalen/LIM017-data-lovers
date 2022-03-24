@@ -499,28 +499,28 @@ footer {
 }
 
 .modal-content {
-  width: 40%;
-  height: 50%;
-  background: #ffff;
-  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   position: relative;
-  transition: transform 1s;
-  border-radius: 10px;
+  width: 350px;
+  min-height: 520px;
+  border-radius: 20px;
+  background-color: #F1FFEE;
+  top: 90px;
+  margin: auto;
+}
+.name-pokemon{
+  font-weight: 600;
+  margin: 0px;
+  font-size: 12px;
 }
 
-.close {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-  background: #c44a4a;
-  color: #ffff;
-  line-height: 25px;
-  cursor: pointer;
-  border-radius: 50%;
+.info-modal{
+  font-size: 17px;
+  color: #2c19cf;
+  line-height: 1.3;
+  font-weight: 600;
 }
