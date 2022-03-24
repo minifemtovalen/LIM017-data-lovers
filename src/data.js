@@ -1,3 +1,5 @@
+// Función para ordenar pokemons de forma ascendiente y descendiente
+
 export const sortData = (pokemons, order = 1) => {
   const cloneOriginalData = new Array(...pokemons);
   const orderedData = cloneOriginalData.sort((a, b) => {
@@ -12,6 +14,8 @@ export const sortData = (pokemons, order = 1) => {
   return orderedData;
 };
 
+//Función para filtrar pokemons por tipo
+
 export const filterData = (pokemons, type) => {
   const filteredData = pokemons.filter((pokemon) => {
     if(pokemon.type.includes(type)) {
@@ -24,6 +28,8 @@ export const filterData = (pokemons, type) => {
   return filteredData;
 };
 
+//Función para buscar pokemons por nombre
+
 export const searchPokemonByName = (pokemons, name) => {
   return pokemons.filter((pokemon) => {
     const pokemonName = pokemon.name.toUpperCase();
@@ -33,17 +39,14 @@ export const searchPokemonByName = (pokemons, name) => {
   })
 };
 
-/**
- *
- *if (!name) throw new TypeError('You have not entered any value');
-  if (typeof name !== "string") throw new TypeError('The entered value is not text');
-  if (typeof pokemons !== "object") throw new TypeError('The value entered is not a valid data');
- */
+//Función para filtrar pokemons por generación
 
 export const genFilter = (pokemons, gen) => {
   const genFiltered = pokemons.filter((pokemon) => pokemon.generation.name.includes(gen));
   return genFiltered;
 };
+
+//Función para mostrar ranking de pokemons
 
 export const sortPower = (pokemons,stats) => {
   const clonedData = new Array(...pokemons);
@@ -62,9 +65,10 @@ export const sortPower = (pokemons,stats) => {
   return arrPowers;
 };
 
+//Función para el modal, ubicar pokemon por número
+
 export const pokemonSeeker = (pokemons, num) => {
   const pokemonFound = pokemons.filter((pokemon) => pokemon.num === num);
   return pokemonFound;
-
 };
 

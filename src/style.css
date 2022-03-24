@@ -30,15 +30,6 @@ h1 {
   color: #FFFFFF;
 }
 
-/*.top-nav {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  height: 3em;
-  bottom: 6px;
-  background: rgb(94 189 252 / 60%);
-}*/
-
 .top-nav {
   background-color: rgb(94 189 252 / 100%);
   overflow: hidden;
@@ -473,16 +464,6 @@ footer {
   text-align: center;
 }
 
-/*queries
-
-@media screen and (max-width: 600px) {
-  .top-nav, .dropdown .drop-btn {
-    display: none;
-  }
-*/
-
-/*modal*/
-
 .modal-container {
   opacity: 0;
   visibility: hidden;
@@ -519,7 +500,7 @@ footer {
 
 .infoModal{
   font-size: 17px;
-  color: #2c19cf;
+  color: #070325;
   line-height: 1.3;
   font-weight: 600;
 }

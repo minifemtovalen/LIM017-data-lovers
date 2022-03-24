@@ -4,7 +4,9 @@ import pokemonData from './data/pokemon/pokemon.js';
 const originalData = pokemonData.pokemon;
 let dataState = [...originalData];
 const showData = document.querySelector('#show-data')
-const navBar = document.querySelector('.top-nav');
+
+//Mostrando data completa de pokemons en pantalla principal
+
 const displayPokemon = (pokemonArr) => {
   showData.innerHTML = "";
   pokemonArr.forEach((pokemon) => {
@@ -19,7 +21,10 @@ const displayPokemon = (pokemonArr) => {
     <div class="pokemon-type">${typeList.join('')}</div>`
     showData.appendChild(pokemonDiv);
   });
+  modalListener();
 }
+
+//Mostrando pokemons ordenados de forma ascendiente y descendiente
 
 displayPokemon(dataState);
 const orderSelect = document.querySelector('#order-select');
@@ -34,6 +39,8 @@ orderSelect.addEventListener('change', () => {
   }
 });
 
+//Mostrando pokemons filtrados por tipo
+ 
 const filterSelect = document.querySelector('#select-type');
 filterSelect.addEventListener('change', () => {
   if (filterSelect.value === 'all') {
@@ -46,9 +53,9 @@ filterSelect.addEventListener('change', () => {
   }
 });
 
-//function for search input
-const searchInput = document.querySelector('#search');
+//Buscando pokemons por nombre
 
+const searchInput = document.querySelector('#search');
 const searchResult = () => {
   dataState = searchPokemonByName(originalData, searchInput.value);
   displayPokemon(dataState);
@@ -66,15 +73,16 @@ const searchResult = () => {
 }
 searchInput.addEventListener('keyup', searchResult);
 
+//Desplegando menú hamburguesa
+
 const hamburgerBtn = document.querySelector('#burger-btn');
+const navBar = document.querySelector('.top-nav');
 const toggleMenu = () => {
   navBar.classList.toggle('hidden-nav');
 }
-
 hamburgerBtn.addEventListener('click', toggleMenu);
 
 const kantoRegion = document.querySelector('#kanto');
-
 kantoRegion.addEventListener('click', () => {
   const filterByRegion = genFilter(originalData, 'kanto');
   displayPokemon(filterByRegion)
@@ -84,7 +92,6 @@ kantoRegion.addEventListener('click', () => {
 })
 
 const johtoRegion = document.querySelector('#johto');
-
 johtoRegion.addEventListener('click', () => {
   const filterByRegion = genFilter(originalData, 'johto');
   displayPokemon(filterByRegion)
@@ -92,6 +99,8 @@ johtoRegion.addEventListener('click', () => {
   navBar.classList.toggle('hidden-nav');
   hideElements('view');
 })
+
+//Mostrando rankin del TopTen de pokemons
 
 const dataRanking = (pokemons, stats) => {
   let power;
@@ -170,10 +179,10 @@ sortPowerSelect.addEventListener('change', () => {
 });
 
 
-//Modal
+//Mostrando info de pokemons en modal
 
 const modalContainer = document.querySelectorAll('.modal-container')[0];
-
+function modalListener() {
 document.querySelectorAll('.pokemon-box').forEach((pokemon) => {
   pokemon.addEventListener('click', () => {
     const num = pokemon.querySelector('.pokemon-num').innerHTML;
@@ -192,7 +201,8 @@ document.querySelectorAll('.pokemon-box').forEach((pokemon) => {
         <div class="evolutionPokemon">NEXT EVOLUTION: ${singleItem.evolution['next-evolution'] ? singleItem.evolution['next-evolution'].map(evolution => evolution.name.toUpperCase()).join(', ') : "This is the last evolution"}</div>
       </section>`;
     })
-  });
+  })
+}
 
 window.addEventListener('click', (e) => {
   if (e.target == modalContainer) {
@@ -203,12 +213,3 @@ window.addEventListener('click', (e) => {
   }
 
 });
-
-/*modal no funciona al primer click, quizas es porque cuelga mi pc ya que todos los pokemones cargan.
-modal no funciona al filtrar por tipo
-modal no funciona en generacion
-modal no funciona al ordenar alfabeticamente y descendiente*/
-
-//posibles cuausas -> addEventListeners
-
-// console.log(pokemonSeeker(originalData, '001'));
