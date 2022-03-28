@@ -3,10 +3,12 @@ import pokemonData from './data/pokemon/pokemon.js';
 
 const originalData = pokemonData.pokemon;
 let dataState = [...originalData];
-const showData = document.querySelector('#show-data')
+let dataState2 = dataState
+let lastFilter = 'original'
 
 //Mostrando data completa de pokemons en pantalla principal
 
+const showData = document.querySelector('#show-data')
 const displayPokemon = (pokemonArr) => {
   showData.innerHTML = "";
   pokemonArr.forEach((pokemon) => {
@@ -33,9 +35,8 @@ orderSelect.addEventListener('change', () => {
     displayPokemon(originalData)
     dataState = originalData;
   } else {
-    const orderedResult = sortData(dataState, parseInt(orderSelect.value))
+    const orderedResult = sortData(dataState2, parseInt(orderSelect.value))
     displayPokemon(orderedResult)
-    dataState = orderedResult;
   }
 });
 
@@ -47,9 +48,12 @@ filterSelect.addEventListener('change', () => {
     displayPokemon(originalData)
     dataState = originalData;
   } else {
-    const filteredResult = filterData(dataState, filterSelect.value)
+    const data = lastFilter === 'generation' ? dataState : originalData;
+    const filteredResult = filterData(data, filterSelect.value)
     displayPokemon(filteredResult)
-    dataState = filteredResult;
+    dataState = lastFilter === 'generation' ? dataState : filteredResult;
+    dataState2 = filteredResult;
+    lastFilter = lastFilter === 'generation' ? lastFilter : 'type';
   }
 });
 
@@ -89,6 +93,8 @@ kantoRegion.addEventListener('click', () => {
   dataState = filterByRegion;
   navBar.classList.toggle('hidden-nav');
   hideElements('view');
+  lastFilter = 'generation'
+  dataState2 = filterByRegion;
 })
 
 const johtoRegion = document.querySelector('#johto');
@@ -98,6 +104,8 @@ johtoRegion.addEventListener('click', () => {
   dataState = filterByRegion;
   navBar.classList.toggle('hidden-nav');
   hideElements('view');
+  lastFilter = 'generation'
+  dataState2 = filterByRegion;
 })
 
 //Mostrando rankin del TopTen de pokemons
@@ -191,17 +199,48 @@ document.querySelectorAll('.pokemon-box').forEach((pokemon) => {
     modalContainer.style.visibility = 'visible';
     const modalContent = document.querySelector('.modal-content');
     modalContent.innerHTML= `
-      <section class="infoModal">
-        <div class="namePokemon">${singleItem.name.toUpperCase()}</div>
-        <div><img class="imgPokemon" src="${singleItem.img}"></div>
-        <div class="heightPokemon"> HEIGHT: ${singleItem.size.height}</div>
-        <div class="weightPokemon">WEIGHT: ${singleItem.size.weight}</div>
-        <div class="typePokemon">TYPE: ${singleItem.type}</div>
-        <div class="generationPokemon">GENERATION: ${singleItem.generation.name}</div>
-        <div class="evolutionPokemon">NEXT EVOLUTION: ${singleItem.evolution['next-evolution'] ? singleItem.evolution['next-evolution'].map(evolution => evolution.name.toUpperCase()).join(', ') : "This is the last evolution"}</div>
-      </section>`;
-    })
+    <section class="info-modal">
+    <div class="num-pokemon">${singleItem.num}</div>
+    <div class="name-pokemon">${singleItem.name.toUpperCase()}</div>
+    <div><img class="img-pokemon" src="${singleItem.img}"></div>
+    <div class="generation-pokemon">GENERATION: ${singleItem.generation.name}</div>
+    <div class="sub-container">
+      <div class="height-pokemon"> HEIGHT: ${singleItem.size.height}</div>
+      <div class="weight-pokemon">WEIGHT: ${singleItem.size.weight}</div>
+      <div class="type-pokemon">TYPE: ${singleItem.type}</div>
+    </div>
+    <div class="evo-container">
+      <div class="each-evolution">
+        ${
+          singleItem.evolution['next-evolution'] ? singleItem.evolution['next-evolution']
+          .map((evolution) => {
+            return `
+              <div class="evol">
+                <img class="img-evolution" src="https://www.serebii.net/pokemongo/pokemon/${evolution.num}.png">
+                <p class="evolution-p">#${evolution.num}</p>
+                <p class="p-name">${evolution.name.toUpperCase()}</p>
+              </div>
+              <h4 class="evolution-h4">Next Evolution</h4>
+              ${
+                evolution['next-evolution'] ? evolution['next-evolution'].map((nextEvol) => {
+                  return `
+                    <div class="evol">
+                      <img class="img-evolution" src="https://www.serebii.net/pokemongo/pokemon/${nextEvol.num}.png">
+                      <p class="evolution-p">#${nextEvol.num}</p>
+                      <p class="p-name">${nextEvol.name.toUpperCase()}</p>
+                    </div>
+                  `
+                }).join('') : ''
+              }
+            `
+          }).join('') : 'This Pokemon has no further evolutions'
+        }
+        </div>
+      <div class="each-evolution"></div>
+    </div>
+  </section>`;
   })
+});
 }
 
 window.addEventListener('click', (e) => {
@@ -211,5 +250,4 @@ window.addEventListener('click', (e) => {
       modalContainer.style.visibility = 'hidden';
     }, 300)
   }
-
 });
