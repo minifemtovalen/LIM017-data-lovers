@@ -193,29 +193,44 @@ function modalListener () {
       const modalContent = document.querySelector('.modal-content');
       modalContent.innerHTML= `
       <section class="info-modal">
+      <div class="num-pokemon">${singleItem.num}</div>
       <div class="name-pokemon">${singleItem.name.toUpperCase()}</div>
       <div><img class="img-pokemon" src="${singleItem.img}"></div>
-      <div class="height-pokemon"> HEIGHT: ${singleItem.size.height}</div>
-      <div class="weight-pokemon">WEIGHT: ${singleItem.size.weight}</div>
-      <div class="type-pokemon">TYPE: ${singleItem.type}</div>
       <div class="generation-pokemon">GENERATION: ${singleItem.generation.name}</div>
-      ${
-        singleItem.evolution['next-evolution'] ? singleItem.evolution['next-evolution']
-        .map((evolution) => {
-          return `<img src="https://www.serebii.net/pokemongo/pokemon/${evolution.num}.png">
-            ${
-              evolution['next-evolution'] ? evolution['next-evolution'].map((nextEvol) => {
-                return `<img src="https://www.serebii.net/pokemongo/pokemon/${nextEvol.num}.png">`
-              }).join('') : ''
-            }
-            ${
-              evolution['prev-evolution'] ? evolution['prev-evolution'].map((prevEvol) => {
-                return `<img src="https://www.serebii.net/pokemongo/pokemon/${prevEvol.num}.png">`
-              }).join('') : ''
-            }
-          `
-        }).join('') : 'This Pokemon has no further evolutions'
-      }
+      <div class="sub-container">
+        <div class="height-pokemon"> HEIGHT: ${singleItem.size.height}</div>
+        <div class="weight-pokemon">WEIGHT: ${singleItem.size.weight}</div>
+        <div class="type-pokemon">TYPE: ${singleItem.type}</div>
+      </div>
+      <div class="evo-container">
+        <div class="each-evolution">
+          ${
+            singleItem.evolution['next-evolution'] ? singleItem.evolution['next-evolution']
+            .map((evolution) => {
+              return `
+                <div class="evol">
+                  <img class="img-evolution" src="https://www.serebii.net/pokemongo/pokemon/${evolution.num}.png">
+                  <p class="evolution-p">#${evolution.num}</p>
+                  <p class="p-name">${evolution.name.toUpperCase()}</p>
+                </div>
+                <h4 class="evolution-h4">Next Evolution</h4>
+                ${
+                  evolution['next-evolution'] ? evolution['next-evolution'].map((nextEvol) => {
+                    return `
+                      <div class="evol">
+                        <img class="img-evolution" src="https://www.serebii.net/pokemongo/pokemon/${nextEvol.num}.png">
+                        <p class="evolution-p">#${nextEvol.num}</p>
+                        <p class="p-name">${nextEvol.name.toUpperCase()}</p>
+                      </div>
+                    `
+                  }).join('') : ''
+                }
+              `
+            }).join('') : 'This Pokemon has no further evolutions'
+          }
+          </div>
+        <div class="each-evolution"></div>
+      </div>
     </section>`;// console.log(pokemonSeeker(originalData, '001'));
     })
   });
