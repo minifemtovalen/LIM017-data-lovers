@@ -1,4 +1,4 @@
-import { sortData, filterData, searchPokemonByName, genFilter, sortPower, pokemonSeeker} from './data.js';
+import { sortData, filterData, searchPokemonByName, genFilter, sortPower, pokemonSeeker } from './data.js';
 import pokemonData from './data/pokemon/pokemon.js';
 
 const originalData = pokemonData.pokemon;
@@ -41,7 +41,7 @@ orderSelect.addEventListener('change', () => {
 });
 
 //Mostrando pokemons filtrados por tipo
- 
+
 const filterSelect = document.querySelector('#select-type');
 filterSelect.addEventListener('change', () => {
   if (filterSelect.value === 'all') {
@@ -63,7 +63,7 @@ const searchInput = document.querySelector('#search');
 const searchResult = () => {
   dataState = searchPokemonByName(originalData, searchInput.value);
   displayPokemon(dataState);
-  if(dataState.length === 0) {
+  if (dataState.length === 0) {
     showData.innerHTML += `<div class="search-alert">
     <h3>No Pokémon matched your search.</h3>
     <p>Try the following to find results:</p>
@@ -135,21 +135,21 @@ const dataRanking = (pokemons, stats) => {
       <td>${pokemons[i].num}</td>
       <td><img class='pokeImage' src=${pokemons[i].img}>${pokemons[i].name}</td>`;
     if (stats === 'attack') {
-      powerList +=  `<td>${pokemons[i].stats['base-attack']}</td>
+      powerList += `<td>${pokemons[i].stats['base-attack']}</td>
       </tr>`;
     } else if (stats === 'defense') {
-        powerList += `<td>${pokemons[i].stats['base-defense']}</td>
+      powerList += `<td>${pokemons[i].stats['base-defense']}</td>
         </tr>`;
     } else if (stats === 'health') {
-        powerList += `
+      powerList += `
         <td>${pokemons[i].stats['base-stamina']}</td>
       </tr>`;
     } else if (stats === 'max-cp') {
-        powerList += `
+      powerList += `
         <td>${pokemons[i].stats['max-cp']}</td>
       </tr>`;
     } else {
-        powerList += `
+      powerList += `
         <td>${pokemons[i].stats['max-hp']}</td>
       </tr>`;
     }
@@ -157,7 +157,7 @@ const dataRanking = (pokemons, stats) => {
   document.querySelector('#ranking-table').innerHTML = powerList;
 };
 
-function hideElements (view) {
+function hideElements(view) {
   if (view === 'ranking') {
     document.querySelector('#power-data').classList.remove('hide');
     document.querySelector('.card').classList.add('hide');
@@ -191,17 +191,19 @@ sortPowerSelect.addEventListener('change', () => {
 
 const modalContainer = document.querySelectorAll('.modal-container')[0];
 function modalListener() {
-document.querySelectorAll('.pokemon-box').forEach((pokemon) => {
-  pokemon.addEventListener('click', () => {
-    const num = pokemon.querySelector('.pokemon-num').innerHTML;
-    const singleItem = pokemonSeeker(originalData, num)[0];
-    modalContainer.style.opacity = '1';
-    modalContainer.style.visibility = 'visible';
-    const modalContent = document.querySelector('.modal-content');
-    modalContent.innerHTML= `
+  document.querySelectorAll('.pokemon-box').forEach((pokemon) => {
+    pokemon.addEventListener('click', () => {
+      const num = pokemon.querySelector('.pokemon-num').innerHTML;
+      const singleItem = pokemonSeeker(originalData, num)[0];
+      modalContainer.style.opacity = '1';
+      modalContainer.style.visibility = 'visible';
+      const modalContent = document.querySelector('.modal-content');
+      modalContent.innerHTML = `
     <section class="info-modal">
+    <div class="modal-text-container>
     <div class="num-pokemon">${singleItem.num}</div>
     <div class="name-pokemon">${singleItem.name.toUpperCase()}</div>
+    </div>
     <div><img class="img-pokemon" src="${singleItem.img}"></div>
     <div class="generation-pokemon">GENERATION: ${singleItem.generation.name}</div>
     <div class="sub-container">
@@ -211,8 +213,7 @@ document.querySelectorAll('.pokemon-box').forEach((pokemon) => {
     </div>
     <div class="evo-container">
       <div class="each-evolution">
-        ${
-          singleItem.evolution['next-evolution'] ? singleItem.evolution['next-evolution']
+        ${singleItem.evolution['next-evolution'] ? singleItem.evolution['next-evolution']
           .map((evolution) => {
             return `
               <div class="evol">
@@ -221,16 +222,15 @@ document.querySelectorAll('.pokemon-box').forEach((pokemon) => {
                 <p class="p-name">${evolution.name.toUpperCase()}</p>
               </div>
               <h4 class="evolution-h4">Next Evolution</h4>
-              ${
-                evolution['next-evolution'] ? evolution['next-evolution'].map((nextEvol) => {
-                  return `
+              ${evolution['next-evolution'] ? evolution['next-evolution'].map((nextEvol) => {
+              return `
                     <div class="evol">
                       <img class="img-evolution" src="https://www.serebii.net/pokemongo/pokemon/${nextEvol.num}.png">
                       <p class="evolution-p">#${nextEvol.num}</p>
                       <p class="p-name">${nextEvol.name.toUpperCase()}</p>
                     </div>
                   `
-                }).join('') : ''
+            }).join('') : ''
               }
             `
           }).join('') : 'This Pokemon has no further evolutions'
@@ -239,8 +239,8 @@ document.querySelectorAll('.pokemon-box').forEach((pokemon) => {
       <div class="each-evolution"></div>
     </div>
   </section>`;
-  })
-});
+    })
+  });
 }
 
 window.addEventListener('click', (e) => {
