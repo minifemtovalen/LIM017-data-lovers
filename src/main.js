@@ -6,7 +6,7 @@ let dataState = [...originalData];
 let dataState2 = dataState
 let lastFilter = 'original'
 
-//Mostrando data completa de pokemons en pantalla principal
+//Mostrando data completa de pokemon en pantalla principal
 
 const showData = document.querySelector('#show-data')
 const displayPokemon = (pokemonArr) => {
