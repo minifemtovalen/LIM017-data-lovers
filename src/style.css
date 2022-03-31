@@ -192,6 +192,7 @@ div#name-input > input#search {
   border: 1px solid #C4C4C4;
   border-radius: 6px;
   padding: 3px;
+  width: 30em;
 }
 
 .search-alert {
@@ -432,6 +433,38 @@ div#show-data {
   text-align: center;
 }
 
+#power-data > h2 {
+  font-size: 2em;
+  color: #E54222;
+  padding: 0;
+  margin: 1em 1em;
+}
+
+#power-data p {
+  padding: 0.5em;
+  border: #16D6FB 0.2em solid;
+  background-color: white;
+  border-left: 0;
+  border-right: 0;
+  border-style: double;
+  line-height: 1.5em;
+  font-size: 20px;
+}
+
+.get-select {
+  border: 0.1em solid #A1A1AE;
+  font-size: 1em;
+  margin-top: 3em;
+  outline: none;
+  border-radius: 8px;
+  width: 6em;
+  text-align: center;
+  height: 2em;
+  background: #EFFCD5;
+  color: #37796C;
+  font-weight: bold;
+}
+
 .items {
   display: flex;
   justify-content: center;
@@ -439,15 +472,16 @@ div#show-data {
 
 #ranking-table {
   width: 50%;
-  margin-top: 2%;
   border-collapse: collapse;
-  border: #A1A1AE 0.2em solid;
+  border: #0C3348 0.2em solid;
+  margin: 4em;
 }
 
 tbody {
   display: table-row-group;
   vertical-align: middle;
   border-color: inherit;
+  color: #37796C;
 }
 
 tr {
@@ -460,28 +494,32 @@ th {
   text-transform: capitalize;
   border-style: groove;
   font-weight: bold;
-  background-color: #A1A1AE;
-  border: #A1A1AE 0.2em solid;
+  background-color: #0C3348;
+  color: #ffffff;
 }
 
 td {
   text-transform: capitalize;
   text-align: center;
+  font-weight: bold;
+}
+
+.poke-image {
+  width: 120px;
+  height: auto;
+  margin-right: -4px;
+  padding: 14px 5px;
+}
+
+.td-name {
+    padding-left: -15px;
+    padding-right: 8px;
+    padding-bottom: 9px;
 }
 
 footer {
   text-align: center;
 }
-
-/*queries
-
-@media screen and (max-width: 600px) {
-  .top-nav, .dropdown .drop-btn {
-    display: none;
-  }
-*/
-
-/*modal*/
 
 .modal-container {
   opacity: 0;
@@ -538,4 +576,24 @@ img.img-pokemon {
   max-width: 300px;
   height: 35px;
   padding-bottom: 8px;
+}
+
+footer {
+  text-align: center;
+  padding: 1em 0;
+  background-color: #CE2211;
+  font-weight: 600;
+  font-size: 18px;
+  color: #ffffff;
+}
+
+
+@media screen and (min-width: 768px) {
+  /*para escritorio*/
+  div#search-bar{
+    display: flex;
+    gap: 1em;
+    padding-right: 1em;
+    justify-content: center;
+  }
 }

@@ -127,7 +127,7 @@ const dataRanking = (pokemons, stats) => {
     powerList += `
     <tr>
       <td>${pokemons[i].num}</td>
-      <td><img class='pokeImage' src=${pokemons[i].img}>${pokemons[i].name}</td>`;
+      <td><img class='poke-image' src=${pokemons[i].img}><div class="td-name">${pokemons[i].name}</div></td>`;
     if (stats === 'attack') {
       powerList +=  `<td>${pokemons[i].stats['base-attack']}</td>
       </tr>`;
@@ -192,28 +192,29 @@ function modalListener () {
       modalContainer.style.visibility = 'visible';
       const modalContent = document.querySelector('.modal-content');
       modalContent.innerHTML= `
-      <section class="info-modal">
-      <div class="num-pokemon">${singleItem.num}</div>
-      <div class="name-pokemon">${singleItem.name.toUpperCase()}</div>
-      <div><img class="img-pokemon" src="${singleItem.img}"></div>
-      <div class="generation-pokemon">GENERATION: ${singleItem.generation.name}</div>
-      <div class="sub-container">
-        <div class="height-pokemon"> HEIGHT: ${singleItem.size.height}</div>
-        <div class="weight-pokemon">WEIGHT: ${singleItem.size.weight}</div>
-        <div class="type-pokemon">TYPE: ${singleItem.type}</div>
-      </div>
-      <div class="evo-container">
-        <div class="each-evolution">
-          ${
-            singleItem.evolution['next-evolution'] ? singleItem.evolution['next-evolution']
-            .map((evolution) => {
-              return `
-                <div class="evol">
-                  <img class="img-evolution" src="https://www.serebii.net/pokemongo/pokemon/${evolution.num}.png">
-                  <p class="evolution-p">#${evolution.num}</p>
-                  <p class="p-name">${evolution.name.toUpperCase()}</p>
-                </div>
-                <h4 class="evolution-h4">Next Evolution</h4>
+        <section class="info-modal">
+          <div class="modal-text-container>
+            <div class="num-pokemon">${singleItem.num}</div>
+            <div class="name-pokemon">${singleItem.name.toUpperCase()}</div>
+          </div>
+          <div><img class="img-pokemon" src="${singleItem.img}"></div>
+          <div class="generation-pokemon">GENERATION: ${singleItem.generation.name}</div>
+          <div class="sub-container">
+            <div class="height-pokemon"> HEIGHT: ${singleItem.size.height}</div>
+            <div class="weight-pokemon">WEIGHT: ${singleItem.size.weight}</div>
+            <div class="type-pokemon">TYPE: ${singleItem.type}</div>
+          </div>
+          <div class="evo-container">
+            <div class="each-evolution">
+              ${
+                singleItem.evolution['next-evolution'] ? singleItem.evolution['next-evolution'].map((evolution) => {
+                return `
+                  <div class="evol">
+                    <img class="img-evolution" src="https://www.serebii.net/pokemongo/pokemon/${evolution.num}.png">
+                    <p class="evolution-p">#${evolution.num}</p>
+                    <p class="p-name">${evolution.name.toUpperCase()}</p>
+                  </div>
+                  <h4 class="evolution-h4">Next Evolution</h4>
                 ${
                   evolution['next-evolution'] ? evolution['next-evolution'].map((nextEvol) => {
                     return `
@@ -227,11 +228,11 @@ function modalListener () {
                 }
               `
             }).join('') : 'This Pokemon has no further evolutions'
-          }
+              }
           </div>
-        <div class="each-evolution"></div>
-      </div>
-    </section>`;// console.log(pokemonSeeker(originalData, '001'));
+          <div class="each-evolution"></div>
+          </div>
+        </section>`;// console.log(pokemonSeeker(originalData, '001'));
     })
   });
 }
@@ -251,12 +252,3 @@ window.addEventListener('click', (e) => {
     }, 300)
   }
 });
-
-/*modal no funciona al primer click, quizas es porque cuelga mi pc ya que todos los pokemones cargan.
-modal no funciona al filtrar por tipo
-modal no funciona en generacion
-modal no funciona al ordenar alfabeticamente y descendiente*/
-
-//posibles cuausas -> addEventListeners
-
-// console.log(pokemonSeeker(originalData, '001'));
