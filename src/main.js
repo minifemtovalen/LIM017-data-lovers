@@ -236,7 +236,6 @@ function modalListener() {
           }).join('') : 'This Pokemon has no further evolutions'
         }
         </div>
-      <div class="each-evolution"></div>
     </div>
   </section>`;
     })
