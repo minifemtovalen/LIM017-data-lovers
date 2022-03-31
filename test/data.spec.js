@@ -9,7 +9,7 @@ describe('sortData', () => {
   it('Debería retornar Data de forma ascendiente', () => {
     const arrayDisordered = [{ name: 'charizard' }, { name: 'charizard' }, { name: 'squirtle' }, { name: 'butterfree' }];
     const arrayAscendancy = [{ name: 'butterfree' }, { name: 'charizard' }, { name: 'charizard' }, { name: 'squirtle' }];
-    expect(sortData(arrayDisordered, 1)).toEqual(arrayAscendancy);
+    expect(sortData(arrayDisordered)).toEqual(arrayAscendancy);
   });
 
   it('Debería retornar Data de forma descendiente', () => {
@@ -34,7 +34,7 @@ describe('filterData', () => {
 });
 
 describe('searchPokemonByName', () => {
-  it('Es una función', () => {
+  it('Is a function', () => {
     expect(typeof searchPokemonByName).toBe('function');
   });
 
@@ -51,8 +51,8 @@ describe('genFilter', () => {
   });
 
   it('Debería retornar filtro por generación johto', () => {
-    const arrayGenWithoutFilter = [{ name: 'charmander', generation:{ num: 'generation i' , name: 'kanto'}}, { name: 'chikorita', generation:{ num: 'generation ii' , name: 'johto'} }, { name: 'totodile', generation:{ num: 'generation ii' , name: 'johto'}}];
-    const arrayGenWithFilter = [{ name: 'chikorita', generation:{ num: 'generation ii' , name:'johto'} }, { name: 'totodile', generation:{ num: 'generation ii' , name: 'johto'}}];
+    const arrayGenWithoutFilter = [{ name: 'charmander', generation:{ num: 'generation i' , name: 'kanto'}}, { name: 'chikorita', generation:{ num: 'generation ii' , name: 'johto'} }, { name: 'totodile', generation:{ num: 'generation ii' , name: 'johto'} }];
+    const arrayGenWithFilter = [{ name: 'chikorita', generation:{ num: 'generation ii' , name:'johto'} }, { name: 'totodile', generation:{ num: 'generation ii' , name: 'johto'} }];
 
     expect(genFilter(arrayGenWithoutFilter, 'johto')).toEqual(arrayGenWithFilter);
   });
@@ -62,6 +62,7 @@ describe('sortPower', () => {
   it('Es una función', () => {
     expect(typeof sortPower).toBe('function');
   })
+
   it('Debería retornar attack al recibir por parametro attack', () => {
     const statsPokemon = [{ stats: { 'base-attack': '117' } }, { stats: { 'base-attack': '200' } }, { stats: { 'base-attack': '84' } }];
     const sortedStats = [{ stats: { 'base-attack': '200' } }, { stats: { 'base-attack': '117' } }, { stats: { 'base-attack': '84' } }];
@@ -88,7 +89,13 @@ describe('sortPower', () => {
     const sortedStats = [{ stats: { 'max-cp': '200' } }, { stats: { 'max-cp': '117' } }, { stats: { 'max-cp': '84' } }];
 
     expect(sortPower(statsPokemon, 'max-cp')).toEqual(sortedStats);
+  });
 
+  it('Debería retornar max-hp al recibir por parametro max hp', () => {
+    const statsPokemon = [{ stats: { 'max-hp': '117' } }, { stats: { 'max-hp': '200' } }, { stats: { 'max-hp': '84' } }];
+    const sortedStats = [{ stats: { 'max-hp': '200' } }, { stats: { 'max-hp': '117' } }, { stats: { 'max-hp': '84' } }];
+
+    expect(sortPower(statsPokemon, 'max-hp')).toEqual(sortedStats);
   });
 });
 
@@ -101,13 +108,6 @@ describe('pokemonSeeker', () => {
     const pokemonArray = [{ 'num': '001' }, { 'num': '002' }, { 'num': '003' }];
     const pokemonNumber = [{ 'num': '001' }];
 
-  it('Debería retornar max-hp al recibir por parametro max hp', () => {
-    const statsPokemon = [{ stats: { 'max-hp': '117' } }, { stats: { 'max-hp': '200' } }, { stats: { 'max-hp': '84' } }];
-    const sortedStats = [{ stats: { 'max-hp': '200' } }, { stats: { 'max-hp': '117' } }, { stats: { 'max-hp': '84' } }];
-
-    expect(sortPower(statsPokemon, 'max-hp')).toEqual(sortedStats);
-
     expect(pokemonSeeker(pokemonArray, '001')).toEqual(pokemonNumber);
   });
-});
 });
